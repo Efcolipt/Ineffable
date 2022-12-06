@@ -1,0 +1,16 @@
+@import './_reset.scss';
+@import './_colors.scss';
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1714px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
+}

@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "^14.18.0 || >=16.0.0"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev -o",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@nuxt/image-edge": "^1.0.0-27827328.bc9ddc0",
+    "@nuxtjs/google-fonts": "3.0.0-1",
+    "@nuxtjs/i18n": "^8.0.0-beta.6",
+    "@nuxtjs/yandex-metrika": "^1.4.0",
+    "nuxt": "3.0.0",
+    "nuxt-purgecss": "^2.0.0",
+    "sass": "^1.56.1"
+  },
+  "dependencies": {
+    "nuxt-security": "^0.9.0"
+  }
+}
