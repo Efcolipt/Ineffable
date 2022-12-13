@@ -639,11 +639,6 @@
     vue-i18n "^9.3.0-beta.10"
     vue-i18n-routing "^0.10.1"
 
-"@nuxtjs/yandex-metrika@^1.4.0":
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/yandex-metrika/-/yandex-metrika-1.4.0.tgz#045dcfd6d8a43f4f869ecdae0b1062bf9d19fb83"
-  integrity sha512-6c5w3oV86575G0/GGJPnaREDCDYKPg5e7P7BiEk4UlSQce56Pqnaolaa8D8A6Ds/KJafZDGcAkc0z65F1anA5A==
-
 "@rollup/plugin-alias@^4.0.2":
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-alias/-/plugin-alias-4.0.2.tgz#fec6c6aff8dd6fce580ae6bc5345084cd702bb62"

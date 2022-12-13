@@ -1,4 +1,5 @@
 {
+  "name": "ineffable",
   "version": "1.0.0",
   "private": true,
   "engines": {
@@ -10,13 +11,16 @@
     "dev": "nuxt dev -o",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "release:pre": "git symbolic-ref --short HEAD | grep -q 'release/' && git pull && yarn version --prerelease && git push && git push --tags",
+    "release:major": "git symbolic-ref --short HEAD | grep -q 'release/' && git pull && yarn version --major && git push && git push --tags",
+    "release:minor": "git symbolic-ref --short HEAD | grep -q 'release/' && git pull && yarn version --minor && git push && git push --tags",
+    "release:patch": "git symbolic-ref --short HEAD | grep -q 'release/' && git pull && yarn version --patch && git push && git push --tags"
   },
   "devDependencies": {
     "@nuxt/image-edge": "^1.0.0-27827328.bc9ddc0",
     "@nuxtjs/google-fonts": "3.0.0-1",
     "@nuxtjs/i18n": "^8.0.0-beta.6",
-    "@nuxtjs/yandex-metrika": "^1.4.0",
     "nuxt": "3.0.0",
     "nuxt-purgecss": "^2.0.0",
     "sass": "^1.56.1"

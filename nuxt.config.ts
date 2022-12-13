@@ -1,5 +1,5 @@
 import pkg from './package.json'
-const APP_NAME = "Whisked";
+const APP_NAME = pkg.name.charAt(0).toUpperCase() + pkg.name.slice(1)
 
 export default defineNuxtConfig({
     srcDir: "src",
@@ -12,26 +12,15 @@ export default defineNuxtConfig({
                 locales: ['ru', 'en'],
                 defaultLocale: 'ru',
                 vueI18n: {
-                    fallbackLocale: 'ru',
-                    messages: {
-                        ru: {
-                            greeting: 'Тест i18n ru'
-                        },
-                        en: {
-                            greeting: 'Test i18n en'
-                        }
-                    }
+                    fallbackLocale: 'ru'
+                },
+                detectBrowserLanguage: {
+                    useCookie: true,
+                    cookieKey: 'i18n_redirected',
+                    redirectOn: 'root',
                 }
             }
         ],
-        // [
-        //     "@nuxtjs/yandex-metrika", {
-        //         id: "91157543",
-        //         clickmap: true,
-        //         trackLinks: true,
-        //         accurateTrackBounce: true,
-        //     }
-        // ],
         [
             "@nuxtjs/google-fonts", {
                 families: {
@@ -52,16 +41,6 @@ export default defineNuxtConfig({
         ]
     ],
 
-    runtimeConfig: {
-        public: {
-            app: {
-                APP_NAME,
-                DEBUG: process.env.NODE_ENV === "development",
-                VERSION: pkg.version,
-            },
-        },
-    },
-
     routeRules: {
         "/_nuxt/**": { headers: { "cache-control": "s-maxage=0" } },
     },
@@ -72,6 +51,7 @@ export default defineNuxtConfig({
             titleTemplate: `%s | ${APP_NAME}`,
             meta: [
                 { "http-equiv": "x-ua-compatible", content: "true" },
+                { "http-equiv": "Content-Security-Policy", content: "default-src *; img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;style-src  'self' 'unsafe-inline' *" },
                 {
                     name: "viewport",
                     content:
@@ -94,7 +74,7 @@ export default defineNuxtConfig({
         css: {
             preprocessorOptions: {
                 scss: {
-                    additionalData: '@use "@/assets/styles/_colors.scss" as *;',
+                    additionalData: '@use "@/assets/styles/_vars.scss" as *;',
                 },
             },
         },

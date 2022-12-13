@@ -1,4 +1,4 @@
-# Whisked Online Cimena
+# Ineffable Online Cimena
 [Production](https://ineffable-cinema.netlify.app/)[![Netlify Status](https://api.netlify.com/api/v1/badges/2a61cc30-0682-4528-8985-8151e98b9ac2/deploy-status)](https://app.netlify.com/sites/ineffable-cinema/deploys)
 
 ## Setup
@@ -6,8 +6,8 @@
 Clone this repository:
 
 ```bash
-git clone https://github.com/Libils-Team/Whisked.git
-cd ./Whisked
+git clone https://github.com/Libils-Team/Ineffable.git
+cd ./Ineffable
 ```
 
 Make sure to install the dependencies:
