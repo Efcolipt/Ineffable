@@ -6,8 +6,8 @@
 Clone this repository:
 
 ```bash
-git clone https://github.com/Libils-Team/Ineffable.git
-cd ./Ineffable
+git clone https://github.com/Libils-Team/ineffable.git
+cd ./ineffable
 ```
 
 Make sure to install the dependencies:
