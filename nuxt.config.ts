@@ -6,8 +6,14 @@ process.env.SECURITY_DEV = 'true'
 export default defineNuxtConfig({
   srcDir: 'src',
   modules: [
-    '@nuxt/image-edge',
-    'nuxt-purgecss',
+    'nuxt-swiper',
+    [
+      'nuxt-purgecss',
+      {
+        enabled: true,
+        safelist: [/.*--.*/],
+      },
+    ],
     [
       '@nuxtjs/i18n',
       {
@@ -39,39 +45,18 @@ export default defineNuxtConfig({
     [
       'nuxt-security',
       {
-        headers: {
-          crossOriginEmbedderPolicyValue: {
-            value: 'require-corp',
-          },
-          crossOriginResourcePolicy: {
-            value: 'cross-origin',
-          },
-          contentSecurityPolicy: {
-            value: {
-              'font-src': ["'self' 'unsafe-inline' data: *"],
-              'img-src': ["'self' data: *"],
-            },
-          },
-        },
         hidePoweredBy: false,
       },
     ],
   ],
 
   experimental: {
-    reactivityTransform: true,
     inlineSSRStyles: false,
   },
 
   app: {
-    pageTransition: {
-      name: 'page',
-      mode: 'out-in',
-    },
-    layoutTransition: {
-      name: 'layout',
-      mode: 'out-in',
-    },
+    pageTransition: { name: 'page', mode: 'out-in' },
+    rootTag: 'div',
     head: {
       titleTemplate: `%s | ${APP_NAME}`,
       meta: [

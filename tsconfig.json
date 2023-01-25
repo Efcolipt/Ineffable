@@ -2,9 +2,6 @@
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "types": [
-      "@nuxt/image-edge",
-      "@nuxtjs/google-fonts",
-      "@nuxtjs/i18n",
       "swiper"
     ]
   }

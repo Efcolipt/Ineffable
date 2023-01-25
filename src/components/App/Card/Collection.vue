@@ -17,12 +17,7 @@ defineProps<{
 <template>
   <NuxtLink class="card" :to="`/watch/${filmId}`">
     <div class="card__image">
-      <NuxtImg
-        crossorigin="anonymous"
-        placeholder
-        :src="posterUrlPreview"
-        loading="lazy"
-      />
+      <img crossorigin="anonymous" :src="posterUrlPreview" loading="lazy" />
       <div class="card__rating">
         <span class="text-md">
           {{ rating }}

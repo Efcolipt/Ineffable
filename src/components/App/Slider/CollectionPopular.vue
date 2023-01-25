@@ -1,21 +1,4 @@
 <script setup lang="ts">
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Navigation } from 'swiper'
-import type { SwiperOptions } from 'swiper'
-import 'swiper/scss'
-import 'swiper/scss/navigation'
-
-const optionsSwiper: SwiperOptions = {
-  modules: [Navigation],
-  slidesPerView: 1,
-  navigation: true,
-  spaceBetween: 15,
-  autoplay: {
-    delay: 5000,
-  },
-  loop: false,
-}
-
 const { pending, data: collection } = await useFetchTopCollection()
 </script>
 <template>
@@ -27,8 +10,8 @@ const { pending, data: collection } = await useFetchTopCollection()
         <AppSkeletonAnimated width="280px" height="46px" />
       </div>
     </div>
-    <Swiper v-else v-bind="optionsSwiper">
-      <SwiperSlide v-for="item in collection.films">
+    <Swiper v-else>
+      <SwiperSlide v-for="item in collection.films" :key="item.value">
         {{ item }}
         <LazyAppCardCollection v-bind="item" />
       </SwiperSlide>

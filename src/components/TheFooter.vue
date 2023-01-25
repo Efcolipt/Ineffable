@@ -24,7 +24,7 @@ const { t } = useI18n({
             <div>
               <span class="text-md text-md--blur">
                 © 2018 - {{ new Date().getUTCFullYear() }}
-                {{ config.APP_NAME }} — MIT License
+                {{ config.APP_NAME }} — ISC License
               </span>
             </div>
             <div class="flex flex-align-center flex-gap-3">

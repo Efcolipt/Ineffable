@@ -56,7 +56,7 @@ const { t } = useI18n({
                   <IconArrowDown />
                 </div>
               </div>
-              <transition mode="ease-in">
+              <transition mode="in-out">
                 <div
                   v-if="isVisibleLocaleDropdown"
                   class="header__locale-dropdown"

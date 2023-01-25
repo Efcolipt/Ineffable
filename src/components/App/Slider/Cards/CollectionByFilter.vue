@@ -1,32 +1,9 @@
 <script setup lang="ts">
-import { Swiper, SwiperSlide } from 'swiper/vue'
-import { Navigation } from 'swiper'
-import type { SwiperOptions } from 'swiper'
-import 'swiper/scss'
-import 'swiper/scss/navigation'
-import { movieSmallCard } from '~~/src/temp/smallCard/movie'
-
-const optionsSwiper: SwiperOptions = {
-  modules: [Navigation],
-  slidesPerView: 5,
-  navigation: true,
-  spaceBetween: 15,
-  autoplay: {
-    delay: 5000,
-  },
-  loop: false,
-}
-
 const isSkeletonVisible = ref(true)
 const data = ref([])
 
-const elementInViewport = async () => {
+const elementInViewport = () => {
   isSkeletonVisible.value = false
-
-  data.value = await (() =>
-    new Promise((resolve) =>
-      setTimeout(() => resolve(movieSmallCard), 40000)
-    ))()
 }
 
 defineProps<{
@@ -58,7 +35,7 @@ defineProps<{
             :key="`slider-skeleton-${item}`"
           />
         </div>
-        <Swiper v-else v-bind="optionsSwiper">
+        <Swiper>
           <SwiperSlide
             v-for="item in data"
             :key="`slider-data-${item.value}-${item.id}`"

@@ -1,3 +1,6 @@
 dist
 .nuxt
 .output
+.vscode/**
+src/packages/**
+useDebug.ts
