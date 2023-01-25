@@ -7,6 +7,8 @@ $secondaryLightColor: #444444;
 $secondaryLightGrayColor: #9E9E9E;
 $secondaryGreenColor: #76D200;
 
+$skeletonPrimaryColor: #343434;
+
 
 @mixin textMixin($fz, $lSpace) {
     font-family: 'Roboto';

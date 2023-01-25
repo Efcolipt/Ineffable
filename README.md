@@ -16,18 +16,12 @@ Make sure to install the dependencies:
 yarn install
 ```
 
-## ESLint/Prettier
+## ESLint
 
 Start ESLint for lint filse:
 
 ```bash
 yarn lintfix
-```
-
-Start ESlint for check files:
-
-```bash
-yarn lint
 ```
 
 ## Development Server
