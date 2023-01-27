@@ -1,5 +1,5 @@
 # Ineffable Online Cimena
-[Production](https://ineffable-cinema.netlify.app/)[![Netlify Status](https://api.netlify.com/api/v1/badges/f9432d7d-f672-4434-ad36-e52c10fdfc48/deploy-status)](https://app.netlify.com/sites/magnificent-boba-c41ee2/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f9432d7d-f672-4434-ad36-e52c10fdfc48/deploy-status)](https://ineffable-cinema.netlify.app/)
 
 ## Setup
 
