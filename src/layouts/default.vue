@@ -13,7 +13,7 @@ const head = useLocaleHead({
 
 const title = computed(() =>
   t(
-    (route.meta.title as string | null | undefined) || 'page.head.title.default'
+    (route.meta.title as string | null | undefined) ?? 'page.head.title.default'
   )
 )
 </script>
@@ -37,7 +37,9 @@ const title = computed(() =>
     <Body>
       <div class="wrapper">
         <TheHeader />
-        <slot />
+        <main>
+          <slot />
+        </main>
         <TheFooter />
       </div>
     </Body>
