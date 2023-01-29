@@ -18,6 +18,8 @@
   "plugins": ["@typescript-eslint", "vue", "nuxt"],
   "rules": {
     "vue/multi-word-component-names": "off",
+    "vue/no-multiple-template-root": "off",
+    "@typescript-eslint/no-unused-vars": "off",
     "no-console": "warn",
     "no-debugger": "warn",
     "vue/no-v-html": "off"

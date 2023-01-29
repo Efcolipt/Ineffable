@@ -1,12 +1,6 @@
 <script setup lang="ts">
-// import { movieSmallCard } from '@/temp/smallCard/movie'
-
-const { t } = useI18n({
-  useScope: 'local',
-})
-
-useHead({
-  title: t('page'),
+definePageMeta({
+  title: 'page.head.title.index',
 })
 </script>
 
@@ -36,12 +30,5 @@ useHead({
 </style>
 
 <i18n lang="json">
-{
-  "ru": {
-    "page": "Главная"
-  },
-  "en": {
-    "page": "Home"
-  }
-}
+{}
 </i18n>

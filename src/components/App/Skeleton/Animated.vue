@@ -16,8 +16,8 @@ defineProps<{ height: string; width: string }>()
   }
 }
 .placeholder {
-  height: v-bind(height);
-  width: v-bind(width);
+  height: v-bind('height');
+  width: v-bind('width');
   border-radius: 8px;
   background-image: linear-gradient(
     to right,

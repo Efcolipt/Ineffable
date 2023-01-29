@@ -17,7 +17,9 @@ export default defineNuxtPlugin((nuxtApp) => {
         }
       )
 
-      observer.observe(el)
+      window.addEventListener('DOMContentLoaded', () => {
+        observer.observe(el)
+      })
     },
   })
 })

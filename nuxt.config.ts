@@ -2,11 +2,18 @@ const APP_NAME =
   (process.env.npm_package_name as string).charAt(0).toUpperCase() +
   (process.env.npm_package_name as string).slice(1)
 
-process.env.SECURITY_DEV = 'true'
+process.env.SECURITY_DEV = String(process.env.NODE_ENV === 'development')
+
 export default defineNuxtConfig({
   srcDir: 'src',
   modules: [
-    'nuxt-swiper',
+    [
+      'nuxt-swiper',
+      {
+        styleLang: 'scss',
+        modules: ['lazy', 'navigation', 'free-mode', 'autoplay'],
+      },
+    ],
     [
       'nuxt-purgecss',
       {
@@ -17,9 +24,21 @@ export default defineNuxtConfig({
     [
       '@nuxtjs/i18n',
       {
-        locales: ['ru', 'en'],
+        baseUrl: 'https://ineffable-cinema.ru',
+        locales: [
+          {
+            code: 'ru',
+            iso: 'ru-RU',
+            isCatchallLocale: true,
+          },
+          {
+            code: 'en',
+            iso: 'en-US',
+          },
+        ],
         defaultLocale: 'ru',
         vueI18n: {
+          legacy: false,
           fallbackLocale: 'ru',
         },
         detectBrowserLanguage: {
@@ -76,6 +95,11 @@ export default defineNuxtConfig({
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },
+  },
+
+  typescript: {
+    shim: false,
+    strict: true,
   },
 
   css: ['@/assets/styles/_config.scss'],

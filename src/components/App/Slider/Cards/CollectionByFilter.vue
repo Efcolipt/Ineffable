@@ -24,7 +24,7 @@ defineProps<{
         </h3>
       </NuxtLink>
 
-      <div style="min-height: 260px">
+      <div>
         <div
           v-if="data.length === 0 || isSkeletonVisible"
           v-observer="elementInViewport"

@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { LocaleObject } from 'vue-i18n-routing'
+
 const isVisibleLocaleDropdown = ref(false)
 
-const { t } = useI18n({
+const { t, locales } = useI18n({
   useScope: 'local',
 })
 </script>
@@ -63,15 +65,15 @@ const { t } = useI18n({
                 >
                   <ul>
                     <li
-                      v-for="locale in $i18n.locales"
-                      :key="`locale-${locale as string}`"
+                      v-for="locale in locales"
+                      :key="`locale-${locale.code}`"
                       class="text-md"
                       @click="
-                        $i18n.setLocale(locale as string),
+                        $i18n.setLocale(locale.code),
                           (isVisibleLocaleDropdown = false)
                       "
                     >
-                      {{ useFirstLetterUppercase(locale as string) }}
+                      {{ useFirstLetterUppercase(locale.code) }}
                     </li>
                   </ul>
                 </div>

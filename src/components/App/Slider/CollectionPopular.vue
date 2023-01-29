@@ -3,16 +3,8 @@ const { pending, data: collection } = await useFetchTopCollection()
 </script>
 <template>
   <div class="slider-popular">
-    <div v-if="pending" class="slider-popular__skeleton">
-      <AppSkeletonAnimated width="100%" height="720px" />
-      <div class="slider-popular__skeleton-info">
-        <AppSkeletonAnimated width="420px" height="46px" />
-        <AppSkeletonAnimated width="280px" height="46px" />
-      </div>
-    </div>
-    <Swiper v-else>
+    <Swiper>
       <SwiperSlide v-for="item in collection.films" :key="item.value">
-        {{ item }}
         <LazyAppCardCollection v-bind="item" />
       </SwiperSlide>
     </Swiper>
@@ -24,20 +16,6 @@ const { pending, data: collection } = await useFetchTopCollection()
   position: relative;
   max-height: 720px;
   overflow: hidden;
-
-  &__skeleton {
-    position: relative;
-
-    &-info {
-      width: 100%;
-      position: absolute;
-      bottom: 100px;
-      left: 120px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-  }
 
   &:after {
     content: '';

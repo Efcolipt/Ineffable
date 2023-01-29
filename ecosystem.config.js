@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'Ineffable',
+      name: 'production',
       exec_mode: 'cluster',
       instances: 'max',
       script: './.output/server/index.mjs',
