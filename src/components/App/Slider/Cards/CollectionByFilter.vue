@@ -1,64 +1,94 @@
 <script setup lang="ts">
-const isSkeletonVisible = ref(true)
-const data = ref([])
-
-const elementInViewport = () => {
-  isSkeletonVisible.value = false
-}
+const data = ref([
+  {
+    value: 'test',
+    id: 1,
+  },
+  {
+    value: 'testasdsd',
+    id: 2,
+  },
+  {
+    value: 'testasdasdasdas',
+    id: 3,
+  },
+  {
+    value: 'testasdasdasdas',
+    id: 4,
+  },
+  {
+    value: 'testasdasdasdas',
+    id: 5,
+  },
+  {
+    value: 'testasdasdasdas',
+    id: 6,
+  },
+])
 
 defineProps<{
   title: {
-    id: number
-    href: string
+    to: string
     value: string
   }
 }>()
 </script>
 
 <template>
-  <section class="slider">
-    <div class="container">
-      <NuxtLink class="slider__caption" :to="title.href">
-        <h3 class="headline-lg">
-          {{ title.value }}
-        </h3>
-      </NuxtLink>
-
-      <div>
-        <div
-          v-if="data.length === 0 || isSkeletonVisible"
-          v-observer="elementInViewport"
-          class="slider__skeletons"
-        >
-          <LazyAppSkeletonCard
-            v-for="item in 5"
-            :key="`slider-skeleton-${item}`"
-          />
-        </div>
-        <Swiper>
-          <SwiperSlide
-            v-for="item in data"
-            :key="`slider-data-${item.value}-${item.id}`"
-          >
-            <LazyAppCardCollection v-bind="item" />
-          </SwiperSlide>
-        </Swiper>
+  <ClientOnly>
+    <section class="collection-filter">
+      <div class="container">
+        <NuxtLink class="collection-filter__caption" :to="title.to">
+          <h3 class="headline-lg">
+            {{ title.value }}
+          </h3>
+        </NuxtLink>
       </div>
-    </div>
-  </section>
+      <Swiper
+        lazy
+        navigation
+        watch-slides-progress
+        :slides-offset-before="100"
+        :space-between="24"
+        :slides-per-view="5"
+        :preload-images="false"
+        :modules="[SwiperLazy, SwiperAutoplay, SwiperNavigation]"
+        :autoplay="{
+          delay: 3000,
+          disableOnInteraction: true,
+        }"
+      >
+        <SwiperSlide
+          v-for="item in data"
+          :key="`swiper-slid-item-${item.value}-${item.id}`"
+        >
+          apsod
+        </SwiperSlide>
+      </Swiper>
+    </section>
+  </ClientOnly>
 </template>
 
-<style lang="scss">
-.slider {
-  &__skeletons {
-    display: flex;
-    width: 100%;
-    gap: 16px;
-  }
-
+<style lang="scss" scoped>
+.collection-filter {
   &__caption {
     display: block;
     margin-bottom: 30px;
+  }
+
+  :deep(.swiper) {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  :deep(.swiper-wrapper) {
+    display: flex;
+  }
+
+  :deep(.swiper-slide) {
+    flex: 0 0 calc((100% / 5) - 24px);
+    border: 1px solid red;
   }
 }
 </style>

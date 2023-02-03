@@ -2,20 +2,26 @@
 const { pending, data: collection } = await useFetchTopCollection()
 </script>
 <template>
-  <div class="slider-popular">
-    <Swiper>
-      <SwiperSlide v-for="item in collection.films" :key="item.value">
-        <LazyAppCardCollection v-bind="item" />
-      </SwiperSlide>
-    </Swiper>
-  </div>
+  <ClientOnly>
+    <section class="collection-filter">
+      <div class="collection-filter__popular">
+        <Swiper>
+          <SwiperSlide v-for="item in collection.films" :key="item.value">
+            <LazyAppCardCollection v-bind="item" />
+          </SwiperSlide>
+        </Swiper>
+      </div>
+    </section>
+  </ClientOnly>
 </template>
 
 <style lang="scss" scoped>
-.slider-popular {
-  position: relative;
-  max-height: 720px;
-  overflow: hidden;
+.collection-filter {
+  &__popular {
+    position: relative;
+    max-height: 720px;
+    overflow: hidden;
+  }
 
   &:after {
     content: '';

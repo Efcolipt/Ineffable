@@ -1,9 +1,7 @@
 <script lang="ts" setup>
 const route = useRoute()
 
-const { t } = useI18n({
-  useScope: 'local',
-})
+const { t } = useI18n()
 
 const head = useLocaleHead({
   addDirAttribute: true,
@@ -16,6 +14,16 @@ const title = computed(() =>
     (route.meta.title as string | null | undefined) ?? 'page.head.title.default'
   )
 )
+
+onMounted(async () => {
+  const workbox = await window.$workbox
+  if (workbox) {
+    workbox.addEventListener('installed', (event) => {
+      // If we don't do this we'll be displaying the notification after the initial installation, which isn't perferred.
+      console.log(event)
+    })
+  }
+})
 </script>
 
 <template>
@@ -35,38 +43,15 @@ const title = computed(() =>
       </template>
     </Head>
     <Body>
-      <div class="wrapper">
-        <TheHeader />
-        <main>
-          <slot />
-        </main>
-        <TheFooter />
-      </div>
+      <KeepAlive>
+        <div class="wrapper">
+          <TheHeader />
+          <main>
+            <slot />
+          </main>
+          <TheFooter />
+        </div>
+      </KeepAlive>
     </Body>
   </Html>
 </template>
-
-<i18n lang="json">
-{
-  "ru": {
-    "page": {
-      "head": {
-        "title": {
-          "default": "Bulba",
-          "index": "Главная"
-        }
-      }
-    }
-  },
-  "en": {
-    "page": {
-      "head": {
-        "title": {
-          "default": "Bulba",
-          "index": "Home"
-        }
-      }
-    }
-  }
-}
-</i18n>

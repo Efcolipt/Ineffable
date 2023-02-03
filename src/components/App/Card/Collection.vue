@@ -45,8 +45,8 @@ defineProps<{
 
     h3 {
       -webkit-line-clamp: 2;
-      display: -webkit-box;
       -webkit-box-orient: vertical;
+      display: -webkit-box;
       overflow: hidden;
     }
   }

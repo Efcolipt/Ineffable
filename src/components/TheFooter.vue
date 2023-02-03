@@ -1,53 +1,49 @@
 <script setup lang="ts">
 const config = useAppConfig()
-const { t } = useI18n({
-  useScope: 'local',
-})
+const { t } = useI18n()
 </script>
 
 <template>
-  <KeepAlive>
-    <footer class="footer">
-      <div class="container">
-        <div class="footer__content">
-          <div class="flex-content-fluid">
-            <AppLogo theme="white" />
-            <div>
-              <span class="text-md">
-                <a href="javascipt:void(0)">{{ t('download.link') }}</a>
-                {{ t('download.app') }} “{{ config.APP_NAME }}”
-                {{ t('download.desktop') }}
-              </span>
-            </div>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="flex-content-fluid">
+          <AppLogo theme="white" />
+          <div>
+            <span class="text-md">
+              <a href="javascipt:void(0)">{{ t('download.link') }}</a>
+              {{ t('download.app') }} “{{ config.APP_NAME }}”
+              {{ t('download.desktop') }}
+            </span>
           </div>
-          <div class="flex-content-fluid">
+        </div>
+        <div class="flex-content-fluid">
+          <div>
+            <span class="text-md text-md--blur">
+              © 2018 - {{ new Date().getUTCFullYear() }} {{ config.APP_NAME }} —
+              ISC License
+            </span>
+          </div>
+          <div class="flex flex-align-center flex-gap-3">
             <div>
               <span class="text-md text-md--blur">
-                © 2018 - {{ new Date().getUTCFullYear() }}
-                {{ config.APP_NAME }} — ISC License
+                {{ t('release') }} v{{ config.VERSION }} {{ config.TARGET }}
               </span>
             </div>
-            <div class="flex flex-align-center flex-gap-3">
-              <div>
-                <span class="text-md text-md--blur">
-                  {{ t('release') }} v{{ config.VERSION }} {{ config.TARGET }}
-                </span>
-              </div>
-              <div>
-                <IconGithub />
-              </div>
+            <div>
+              <IconGithub />
             </div>
           </div>
         </div>
       </div>
-    </footer>
-  </KeepAlive>
+    </div>
+  </footer>
 </template>
 
 <style lang="scss" scoped>
 .footer {
-  margin-top: 120px;
-  height: 150px;
+  margin-top: auto;
+  padding-bottom: 40px;
 
   &__content {
     display: flex;
@@ -71,24 +67,3 @@ const { t } = useI18n({
   }
 }
 </style>
-
-<i18n lang="json">
-{
-  "ru": {
-    "download": {
-      "link": "Скачать",
-      "app": "приложение",
-      "desktop": "на ваш компьютер"
-    },
-    "release": "Релиз"
-  },
-  "en": {
-    "download": {
-      "link": "Download",
-      "app": "the download app",
-      "desktop": "on your desktop"
-    },
-    "release": "Release"
-  }
-}
-</i18n>

@@ -8,10 +8,34 @@ export default defineNuxtConfig({
   srcDir: 'src',
   modules: [
     [
+      '@kevinmarrec/nuxt-pwa',
+      {
+        workbox: {
+          enabled: true,
+        },
+        meta: {
+          theme_color: '#222222',
+          lang: 'ru-RU',
+          nativeUI: true,
+          description: 'Ineffable Online Cinema',
+          favicon: false,
+        },
+        manifest: {
+          id: '/?standalone=true',
+          name: 'Ineffable Online Cinema',
+          short_name: 'Ineffable',
+          description: '## Setup',
+          theme_color: '#222222',
+          background_color: '#222222',
+          lang: 'ru-RU',
+        },
+      },
+    ],
+    [
       'nuxt-swiper',
       {
         styleLang: 'scss',
-        modules: ['lazy', 'navigation', 'free-mode', 'autoplay'],
+        modules: ['lazy', 'navigation', 'autoplay'],
       },
     ],
     [
@@ -80,18 +104,11 @@ export default defineNuxtConfig({
       titleTemplate: `%s | ${APP_NAME}`,
       meta: [
         { 'http-equiv': 'x-ua-compatible', content: 'IE=edge,chrome=1' },
-
         {
           name: 'viewport',
-          content:
-            'width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no',
+          content: 'width=device-width, initial-scale=1',
         },
         { name: 'HandheldFriendly', content: 'true' },
-        {
-          hid: 'description',
-          name: 'description',
-          content: APP_NAME,
-        },
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },

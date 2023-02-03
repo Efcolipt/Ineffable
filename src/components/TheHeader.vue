@@ -1,99 +1,91 @@
 <script setup lang="ts">
-import { LocaleObject } from 'vue-i18n-routing'
-
 const isVisibleLocaleDropdown = ref(false)
 
-const { t, locales } = useI18n({
-  useScope: 'local',
-})
+const { t, locales } = useI18n()
 </script>
 
 <template>
-  <KeepAlive>
-    <header class="header">
-      <div class="container">
-        <div class="header__content">
-          <div class="header__brand">
-            <NuxtLink to="/">
-              <AppLogo />
-            </NuxtLink>
+  <header class="header">
+    <div class="container">
+      <div class="header__content">
+        <div class="header__brand">
+          <NuxtLink to="/">
+            <AppLogo />
+          </NuxtLink>
+        </div>
+        <nav class="header__menu">
+          <ul class="header__list">
+            <li class="header__item">
+              <NuxtLink to="/" class="text-md">
+                {{ t('menu.home') }}
+              </NuxtLink>
+            </li>
+            <li class="header__item">
+              <NuxtLink to="/" class="text-md">
+                {{ t('menu.movies') }}
+              </NuxtLink>
+            </li>
+            <li class="header__item">
+              <NuxtLink to="/" class="text-md">
+                {{ t('menu.series') }}
+              </NuxtLink>
+            </li>
+            <li class="header__item">
+              <NuxtLink to="/" class="text-md">
+                {{ t('menu.mult') }}
+              </NuxtLink>
+            </li>
+          </ul>
+        </nav>
+        <div class="header__action">
+          <div>
+            <IconSearch />
           </div>
-          <nav class="header__menu">
-            <ul class="header__list">
-              <li class="header__item">
-                <NuxtLink to="/" class="text-md">
-                  {{ t('menu.home') }}
-                </NuxtLink>
-              </li>
-              <li class="header__item">
-                <NuxtLink to="/" class="text-md">
-                  {{ t('menu.movies') }}
-                </NuxtLink>
-              </li>
-              <li class="header__item">
-                <NuxtLink to="/" class="text-md">
-                  {{ t('menu.series') }}
-                </NuxtLink>
-              </li>
-              <li class="header__item">
-                <NuxtLink to="/" class="text-md">
-                  {{ t('menu.mult') }}
-                </NuxtLink>
-              </li>
-            </ul>
-          </nav>
-          <div class="header__action">
-            <div>
-              <IconSearch />
-            </div>
-            <div class="header__locale">
-              <div
-                class="header__locale-list"
-                @click="isVisibleLocaleDropdown = !isVisibleLocaleDropdown"
-              >
-                <div class="text-md">
-                  {{ useFirstLetterUppercase($i18n.locale) }}
-                </div>
-                <div>
-                  <IconArrowDown />
-                </div>
+          <div class="header__locale">
+            <div
+              class="header__locale-list"
+              @click="isVisibleLocaleDropdown = !isVisibleLocaleDropdown"
+            >
+              <div class="text-md">
+                {{ useFirstLetterUppercase($i18n.locale) }}
               </div>
-              <transition mode="in-out">
-                <div
-                  v-if="isVisibleLocaleDropdown"
-                  class="header__locale-dropdown"
-                >
-                  <ul>
-                    <li
-                      v-for="locale in locales"
-                      :key="`locale-${locale.code}`"
-                      class="text-md"
-                      @click="
-                        $i18n.setLocale(locale.code),
-                          (isVisibleLocaleDropdown = false)
-                      "
-                    >
-                      {{ useFirstLetterUppercase(locale.code) }}
-                    </li>
-                  </ul>
-                </div>
-              </transition>
+              <div>
+                <IconArrowDown />
+              </div>
             </div>
-            <div>
-              <UIButton theme="secondary" size="sm">
-                <div>
-                  <IconUser />
-                </div>
-                <div>
-                  {{ t('auth') }}
-                </div>
-              </UIButton>
-            </div>
+            <transition mode="in-out">
+              <div
+                v-if="isVisibleLocaleDropdown"
+                class="header__locale-dropdown"
+              >
+                <ul>
+                  <li
+                    v-for="locale in locales"
+                    :key="`locale-${locale.code}`"
+                    class="text-md"
+                    @click="
+                      $i18n.setLocale(locale.code),
+                        (isVisibleLocaleDropdown = false)
+                    "
+                  >
+                    {{ useFirstLetterUppercase(locale.code) }}
+                  </li>
+                </ul>
+              </div>
+            </transition>
+          </div>
+          <div>
+            <UIButton theme="secondary" size="sm">
+              <IconUser />
+              <div>
+                {{ t('auth') }}
+              </div>
+            </UIButton>
           </div>
         </div>
       </div>
-    </header>
-  </KeepAlive>
+    </div>
+  </header>
 </template>
 
 <style scoped lang="scss">
@@ -162,26 +154,3 @@ const { t, locales } = useI18n({
   }
 }
 </style>
-
-<i18n lang="json">
-{
-  "ru": {
-    "menu": {
-      "home": "Главная",
-      "movies": "Фильмы",
-      "series": "Сериалы",
-      "mult": "Мультфильмы"
-    },
-    "auth": "Вход / Регистрация"
-  },
-  "en": {
-    "menu": {
-      "home": "Home",
-      "movies": "Movies",
-      "series": "Series",
-      "mult": "Mults"
-    },
-    "auth": "Sign In / Sign Up"
-  }
-}
-</i18n>
