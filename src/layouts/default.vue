@@ -1,57 +1,45 @@
 <script lang="ts" setup>
-const route = useRoute()
-
-const { t } = useI18n()
+const title = ref(
+  useI18n().t((useRoute().meta.title as string) ?? 'page.head.title.default')
+)
 
 const head = useLocaleHead({
   addDirAttribute: true,
   addSeoAttributes: true,
-  identifierAttribute: 'id',
 })
 
-const title = computed(() =>
-  t(
-    (route.meta.title as string | null | undefined) ?? 'page.head.title.default'
-  )
-)
+const config = useRuntimeConfig().public
 
-onMounted(async () => {
-  const workbox = await window.$workbox
-  if (workbox) {
-    workbox.addEventListener('installed', (event) => {
-      // If we don't do this we'll be displaying the notification after the initial installation, which isn't perferred.
-      console.log(event)
-    })
-  }
+useHead({
+  title: title.value,
+  htmlAttrs: head.value.htmlAttrs,
+  titleTemplate: `%s | ${config.APP_NAME}`,
+  meta: [
+    ...(head.value.meta || []),
+    { 'http-equiv': 'x-ua-compatible', content: 'IE=edge,chrome=1' },
+    { name: 'HandheldFriendly', content: 'true' },
+  ],
+  link: [
+    ...(head.value.link || []),
+    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Rubik:wght@600;700&display=swap',
+    },
+  ],
 })
 </script>
 
 <template>
-  <Html :lang="head.htmlAttrs?.lang" :dir="head.htmlAttrs?.dir">
-    <Head>
-      <Title>{{ title }}</Title>
-      <template v-for="link in head.link" :key="link.id">
-        <Link
-          :id="link.id"
-          :rel="link.rel"
-          :href="link.href"
-          :hreflang="link.hreflang"
-        />
-      </template>
-      <template v-for="meta in head.meta" :key="meta.id">
-        <Meta :id="meta.id" :property="meta.property" :content="meta.content" />
-      </template>
-    </Head>
-    <Body>
-      <KeepAlive>
-        <div class="wrapper">
-          <TheHeader />
-          <main>
-            <slot />
-          </main>
-          <TheFooter />
-        </div>
-      </KeepAlive>
-    </Body>
-  </Html>
+  <Body>
+    <div class="wrapper">
+      <TheHeader />
+      <main>
+        <slot />
+      </main>
+      <TheFooter />
+    </div>
+  </Body>
 </template>

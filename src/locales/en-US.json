@@ -1,0 +1,27 @@
+{
+  "default": {
+    "page": {
+      "head": {
+        "title": {
+          "default": "Online cinema for watching movies and series"
+        }
+      }
+    },
+
+    "menu": {
+      "home": "Home",
+      "movies": "Movies",
+      "series": "Series",
+      "mult": "Mults"
+    },
+
+    "download": {
+      "link": "Download",
+      "app": "app",
+      "desktop": "on your desktop"
+    },
+
+    "release": "Release",
+    "auth-button": "Auth / Registration"
+  }
+}

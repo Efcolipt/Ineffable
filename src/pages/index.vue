@@ -1,30 +1,9 @@
 <script setup lang="ts">
-definePageMeta({
-  title: 'page.head.title.index',
-})
+const { data } = await useLazyAsyncData(() =>
+  $fetch(`${useRuntimeConfig().public.BASE_API}/info/top`)
+)
 </script>
 
 <template>
-  <div>
-    <!-- <LazyAppSliderCollectionPopular /> -->
-    <div class="sliders-by-filter">
-      <LazyAppSliderCardsCollectionByFilter
-        v-for="i in 3"
-        :key="`asod${i}`"
-        :title="{
-          to: '',
-          value: 'test',
-        }"
-      />
-    </div>
-  </div>
+  <AppSliderCollectionPopular :collection="data" />
 </template>
-
-<style lang="scss" scoped>
-.sliders-by-filter {
-  display: flex;
-  flex-direction: column;
-  gap: 100px;
-  margin-top: 100px;
-}
-</style>

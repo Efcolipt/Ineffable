@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const config = useAppConfig()
+const config = useRuntimeConfig().public
 const { t } = useI18n()
 </script>
 
@@ -27,7 +27,8 @@ const { t } = useI18n()
           <div class="flex flex-align-center flex-gap-3">
             <div>
               <span class="text-md text-md--blur">
-                {{ t('release') }} v{{ config.VERSION }} {{ config.TARGET }}
+                {{ t('release') }} v{{ config.VERSION }}
+                {{ config.TARGET }}
               </span>
             </div>
             <div>

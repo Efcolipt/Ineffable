@@ -1,8 +1,30 @@
-const APP_NAME =
-  (process.env.npm_package_name as string).charAt(0).toUpperCase() +
-  (process.env.npm_package_name as string).slice(1)
+import { version } from './package.json'
 
-process.env.SECURITY_DEV = String(process.env.NODE_ENV === 'development')
+const isDev = process.env.NODE_ENV === 'development'
+
+const publicAppConfig = {
+  APP_NAME: 'Ineffable',
+  TARGET: process.env.NODE_ENV,
+  IS_DEVELOPMENT: isDev,
+  DEBUG: isDev,
+  VERSION: version,
+  AUTHOR: 'Efcolipt',
+  BASE_API: '/api',
+}
+
+const privateAppConfig = {
+  INFO_BD: {
+    API_KEY: '850a24d2-f3a2-4451-b89e-1d20d8149663',
+    API_PROP: 'X-API-KEY',
+    API_BASE_URL: 'https://kinopoiskapiunofficial.tech/api/v2.2/films',
+  },
+  VIDEO_BD: {
+    API_KEY: '850a24d2-f3a2-4451-b89e-1d20d8149663',
+    API_PROP: 'X-API-KEY',
+  },
+}
+
+process.env.SECURITY_DEV = String(publicAppConfig.IS_DEVELOPMENT)
 
 export default defineNuxtConfig({
   srcDir: 'src',
@@ -13,20 +35,25 @@ export default defineNuxtConfig({
         workbox: {
           enabled: true,
         },
+
         meta: {
-          theme_color: '#222222',
           lang: 'ru-RU',
-          nativeUI: true,
-          description: 'Ineffable Online Cinema',
+          theme_color: '#222222',
+          author: `${publicAppConfig.APP_NAME}`,
+          copyright: `${publicAppConfig.APP_NAME} | Created by ${publicAppConfig.AUTHOR}`,
+          description: `${publicAppConfig.APP_NAME} Online Cinema`,
           favicon: false,
+          mobileApp: true,
+          mobileAppIOS: true,
+          appleStatusBarStyle: 'black',
         },
+
         manifest: {
           id: '/?standalone=true',
-          name: 'Ineffable Online Cinema',
-          short_name: 'Ineffable',
-          description: '## Setup',
-          theme_color: '#222222',
+          name: `${publicAppConfig.APP_NAME} Online Cinema`,
+          short_name: `${publicAppConfig.APP_NAME}`,
           background_color: '#222222',
+          theme_color: '#222222',
           lang: 'ru-RU',
         },
       },
@@ -34,7 +61,6 @@ export default defineNuxtConfig({
     [
       'nuxt-swiper',
       {
-        styleLang: 'scss',
         modules: ['lazy', 'navigation', 'autoplay'],
       },
     ],
@@ -48,76 +74,45 @@ export default defineNuxtConfig({
     [
       '@nuxtjs/i18n',
       {
-        baseUrl: 'https://ineffable-cinema.ru',
+        langDir: 'locales',
+        defaultLocale: 'ru',
+
         locales: [
           {
             code: 'ru',
             iso: 'ru-RU',
+            file: 'ru-RU.json',
             isCatchallLocale: true,
           },
           {
             code: 'en',
             iso: 'en-US',
+            file: 'en-US.json',
           },
         ],
-        defaultLocale: 'ru',
+
         vueI18n: {
-          legacy: false,
           fallbackLocale: 'ru',
         },
-        detectBrowserLanguage: {
-          useCookie: true,
-          cookieKey: 'i18n_redirected',
-          redirectOn: 'root',
-        },
-      },
-    ],
-    [
-      '@nuxtjs/google-fonts',
-      {
-        families: {
-          Roboto: {
-            wght: [400, 500, 600],
-          },
-          Rubik: {
-            wght: [600, 700],
-          },
-        },
-      },
-    ],
-    [
-      'nuxt-security',
-      {
-        hidePoweredBy: false,
       },
     ],
   ],
 
-  experimental: {
-    inlineSSRStyles: false,
+  runtimeConfig: {
+    public: publicAppConfig,
+    ...privateAppConfig,
   },
 
-  app: {
-    pageTransition: { name: 'page', mode: 'out-in' },
-    rootTag: 'div',
-    head: {
-      titleTemplate: `%s | ${APP_NAME}`,
-      meta: [
-        { 'http-equiv': 'x-ua-compatible', content: 'IE=edge,chrome=1' },
-        {
-          name: 'viewport',
-          content: 'width=device-width, initial-scale=1',
-        },
-        { name: 'HandheldFriendly', content: 'true' },
-      ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    },
+  experimental: {
+    inlineSSRStyles: false,
+    reactivityTransform: false,
   },
 
   typescript: {
     shim: false,
-    strict: true,
   },
+
+  sourcemap: true,
 
   css: ['@/assets/styles/_config.scss'],
 

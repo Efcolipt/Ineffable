@@ -1,7 +1,9 @@
 <script setup lang="ts">
-const isVisibleLocaleDropdown = ref(false)
+import { LocaleObject } from 'vue-i18n-routing'
 
-const { t, locales } = useI18n()
+const { locales, t, locale } = useI18n()
+const switchLocalePath = useSwitchLocalePath()
+const isVisibleLocaleDropdown = ref(false)
 </script>
 
 <template>
@@ -47,7 +49,7 @@ const { t, locales } = useI18n()
               @click="isVisibleLocaleDropdown = !isVisibleLocaleDropdown"
             >
               <div class="text-md">
-                {{ useFirstLetterUppercase($i18n.locale) }}
+                {{ locale }}
               </div>
               <div>
                 <IconArrowDown />
@@ -60,15 +62,12 @@ const { t, locales } = useI18n()
               >
                 <ul>
                   <li
-                    v-for="locale in locales"
-                    :key="`locale-${locale.code}`"
-                    class="text-md"
-                    @click="
-                      $i18n.setLocale(locale.code),
-                        (isVisibleLocaleDropdown = false)
-                    "
+                    v-for="item in (locales as LocaleObject[])"
+                    :key="`locale-${item.code}`"
                   >
-                    {{ useFirstLetterUppercase(locale.code) }}
+                    <NuxtLink :to="switchLocalePath(item.code)" class="text-md">
+                      {{ item.code }}
+                    </NuxtLink>
                   </li>
                 </ul>
               </div>
@@ -78,7 +77,7 @@ const { t, locales } = useI18n()
             <UIButton theme="secondary" size="sm">
               <IconUser />
               <div>
-                {{ t('auth') }}
+                {{ t('auth-button') }}
               </div>
             </UIButton>
           </div>
