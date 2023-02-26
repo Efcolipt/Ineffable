@@ -1,3 +1,6 @@
+import { resolve, dirname } from 'node:path'
+import { fileURLToPath } from 'url'
+import VueI18nVitePlugin from '@intlify/unplugin-vue-i18n/vite'
 import { version } from './package.json'
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -33,7 +36,7 @@ export default defineNuxtConfig({
       '@kevinmarrec/nuxt-pwa',
       {
         workbox: {
-          enabled: true,
+          enabled: false,
         },
 
         meta: {
@@ -74,17 +77,21 @@ export default defineNuxtConfig({
     [
       '@nuxtjs/i18n',
       {
-        langDir: 'locales',
+        strategy: 'prefix',
         defaultLocale: 'ru',
+
+        lazy: true,
+        langDir: 'locales',
 
         locales: [
           {
             code: 'ru',
+            name: 'Русский',
             iso: 'ru-RU',
             file: 'ru-RU.json',
-            isCatchallLocale: true,
           },
           {
+            name: 'English',
             code: 'en',
             iso: 'en-US',
             file: 'en-US.json',

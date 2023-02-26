@@ -1,7 +1,5 @@
 <script setup lang="ts">
-const props = defineProps<{ collection: any[] }>()
-
-console.log(props.collection)
+defineProps<{ collection: any[] }>()
 </script>
 
 <template>
@@ -23,7 +21,7 @@ console.log(props.collection)
         v-for="item in collection"
         :key="`slider-popular-item-${item.value}-${item.id}`"
       >
-        <NuxtLink class="card" :to="`/watch/${item.id}`">
+        <NuxtLink class="card" :to="`/watch/${item.filmId}`">
           <img class="card__image image" :src="item.posterUrl" />
 
           <div class="card__info">

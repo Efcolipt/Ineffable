@@ -87,6 +87,12 @@ a {
       overflow: hidden;
     }
 
+    &-first-letter {
+      &::first-letter {
+        text-transform: uppercase
+      }
+    }
+
     &-md {
         @include textMixin(16px, 0.015em);
 

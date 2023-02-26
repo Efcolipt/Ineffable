@@ -3,6 +3,7 @@ import { LocaleObject } from 'vue-i18n-routing'
 
 const { locales, t, locale } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
+
 const isVisibleLocaleDropdown = ref(false)
 </script>
 
@@ -48,7 +49,7 @@ const isVisibleLocaleDropdown = ref(false)
               class="header__locale-list"
               @click="isVisibleLocaleDropdown = !isVisibleLocaleDropdown"
             >
-              <div class="text-md">
+              <div class="text-md header__locale-current">
                 {{ locale }}
               </div>
               <div>
@@ -56,29 +57,31 @@ const isVisibleLocaleDropdown = ref(false)
               </div>
             </div>
             <transition mode="in-out">
-              <div
+              <ul
                 v-if="isVisibleLocaleDropdown"
                 class="header__locale-dropdown"
               >
-                <ul>
-                  <li
-                    v-for="item in (locales as LocaleObject[])"
-                    :key="`locale-${item.code}`"
+                <li
+                  v-for="item in (locales as LocaleObject[])"
+                  :key="`locale-${item.code}`"
+                >
+                  <NuxtLink
+                    :key="item.code"
+                    :to="switchLocalePath(item.code)"
+                    class="text-md"
                   >
-                    <NuxtLink :to="switchLocalePath(item.code)" class="text-md">
-                      {{ item.code }}
-                    </NuxtLink>
-                  </li>
-                </ul>
-              </div>
+                    {{ item.name }}
+                  </NuxtLink>
+                </li>
+              </ul>
             </transition>
           </div>
           <div>
             <UIButton theme="secondary" size="sm">
               <IconUser />
-              <div>
+              <span>
                 {{ t('auth-button') }}
-              </div>
+              </span>
             </UIButton>
           </div>
         </div>
@@ -134,20 +137,28 @@ const isVisibleLocaleDropdown = ref(false)
       cursor: pointer;
     }
 
+    &-current {
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+
     &-dropdown {
       position: absolute;
       background-color: $secondaryLightColor;
       border-radius: 8px;
-      padding: 12px;
-      width: 70px;
+      min-width: 64px;
+      gap: 8px;
       display: flex;
+      left: -50%;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      left: -15px;
+      padding: 16px 12px;
 
       li {
         cursor: pointer;
+        &::first-letter {
+          text-transform: uppercase;
+        }
       }
     }
   }

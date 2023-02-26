@@ -1,3 +1,11 @@
+<script setup lang="ts">
+const { finalizePendingLocaleChange } = useI18n()
+
+const onBeforeEnter = async () => {
+  await finalizePendingLocaleChange()
+}
+</script>
+
 <template>
   <NuxtLayout>
     <NuxtLoadingIndicator :height="5" :duration="3000" :throttle="400" />
@@ -5,6 +13,7 @@
       :transition="{
         name: 'page',
         mode: 'out-in',
+        onBeforeEnter,
       }"
     />
   </NuxtLayout>
