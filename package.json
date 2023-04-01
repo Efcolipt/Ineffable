@@ -4,40 +4,38 @@
   "private": true,
   "license": "ISC",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=16.10.0"
   },
   "scripts": {
     "build": "nuxt clean && nuxt build",
     "dev": "nuxt prepare && nuxt dev",
     "postinstall": "nuxt prepare",
-    "lint:fix": "eslint --fix --ext \".ts,.js,.vue\" --ignore-path .eslintignore .",
     "release": "release-it",
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.4.2",
-    "@commitlint/config-conventional": "^17.4.2",
-    "@kevinmarrec/nuxt-pwa": "^0.15.0",
+    "@commitlint/cli": "^17.5.1",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@nuxtjs/i18n": "^8.0.0-beta.10",
     "@release-it/conventional-changelog": "^5.1.1",
-    "eslint": "^8.29.0",
-    "eslint-config-prettier": "^8.5.0",
+    "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-nuxt": "^4.0.0",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.0",
-    "lint-staged": "^13.1.0",
-    "nuxt": "^3.1.2",
+    "lint-staged": "^13.2.0",
+    "nuxt": "^3.3.2",
     "nuxt-purgecss": "^2.0.0",
-    "nuxt-swiper": "^0.1.9",
-    "prettier": "^2.8.1",
-    "release-it": "^15.6.0",
-    "sass": "^1.56.1",
-    "typescript": "^4.9.4"
+    "nuxt-swiper": "^1.0.1",
+    "prettier": "^2.8.7",
+    "release-it": "^15.10.0",
+    "sass": "^1.60.0"
   },
   "lint-staged": {
     "**/*.{js,ts,vue}": [
-      "yarn lint:fix"
+      "eslint --fix --ext \".ts,.js,.vue\" --ignore-path .eslintignore ."
     ]
   },
   "release-it": {
