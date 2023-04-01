@@ -27,8 +27,6 @@ const privateAppConfig = {
   },
 }
 
-process.env.SECURITY_DEV = String(publicAppConfig.IS_DEVELOPMENT)
-
 export default defineNuxtConfig({
   srcDir: 'src',
   modules: [
