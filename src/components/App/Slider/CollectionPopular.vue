@@ -11,7 +11,7 @@ defineProps<{ collection: any[] }>()
       :space-between="24"
       :slides-per-view="1"
       :preload-images="false"
-      :modules="[SwiperLazy, SwiperAutoplay, SwiperNavigation]"
+      :modules="[SwiperAutoplay, SwiperNavigation]"
       :autoplay="{
         delay: 3000,
         disableOnInteraction: true,

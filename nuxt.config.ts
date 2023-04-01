@@ -62,7 +62,7 @@ export default defineNuxtConfig({
     [
       'nuxt-swiper',
       {
-        modules: ['lazy', 'navigation', 'autoplay'],
+        modules: ['navigation', 'autoplay'],
       },
     ],
     [
