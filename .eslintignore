@@ -1,6 +1,9 @@
-dist
+node_modules
+*.log*
 .nuxt
+.nitro
+.cache
 .output
-.vscode/**
+.env
 src/packages/**
-useDebug.ts
+dist
