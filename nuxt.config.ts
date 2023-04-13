@@ -1,6 +1,3 @@
-import { resolve, dirname } from 'node:path'
-import { fileURLToPath } from 'url'
-import VueI18nVitePlugin from '@intlify/unplugin-vue-i18n/vite'
 import { version } from './package.json'
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -30,6 +27,9 @@ const privateAppConfig = {
 export default defineNuxtConfig({
   srcDir: 'src',
   modules: [
+    '@nuxtjs/i18n',
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/tailwindcss',
     [
       '@kevinmarrec/nuxt-pwa',
       {
@@ -60,48 +60,35 @@ export default defineNuxtConfig({
       },
     ],
     [
-      'nuxt-swiper',
-      {
-        modules: ['navigation', 'autoplay'],
-      },
-    ],
-    [
       'nuxt-purgecss',
       {
         enabled: true,
         safelist: [/.*--.*/],
       },
     ],
-    [
-      '@nuxtjs/i18n',
+  ],
+
+  i18n: {
+    strategy: 'prefix',
+    defaultLocale: 'ru',
+
+    langDir: 'locales',
+
+    locales: [
       {
-        strategy: 'prefix',
-        defaultLocale: 'ru',
-
-        lazy: true,
-        langDir: 'locales',
-
-        locales: [
-          {
-            code: 'ru',
-            name: 'Русский',
-            iso: 'ru-RU',
-            file: 'ru-RU.json',
-          },
-          {
-            name: 'English',
-            code: 'en',
-            iso: 'en-US',
-            file: 'en-US.json',
-          },
-        ],
-
-        vueI18n: {
-          fallbackLocale: 'ru',
-        },
+        code: 'ru',
+        name: 'Русский',
+        iso: 'ru-RU',
+        file: 'ru-RU.json',
+      },
+      {
+        name: 'English',
+        code: 'en',
+        iso: 'en-US',
+        file: 'en-US.json',
       },
     ],
-  ],
+  },
 
   runtimeConfig: {
     public: publicAppConfig,
