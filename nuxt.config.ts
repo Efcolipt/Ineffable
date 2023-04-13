@@ -29,60 +29,46 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/i18n',
     '@nuxtjs/eslint-module',
-    [
-      '@nuxtjs/tailwindcss',
-      {
-        colors: {
-          primary: '#A189FF',
-          gray: '#444444',
-          'primary-linear':
-            'linear-gradient(90deg, #5E36FF 20.69%, #C74FFF 100%)',
-          'gray-dark': '#222222',
-          'gray-light': '#444444',
-        },
-        fontFamily: {
-          headline: ['Rubik', 'sans-serif'],
-          text: ['Roboto', 'serif'],
-        },
-      },
-    ],
-    [
-      '@kevinmarrec/nuxt-pwa',
-      {
-        workbox: {
-          enabled: false,
-        },
-
-        meta: {
-          lang: 'ru-RU',
-          theme_color: '#222222',
-          author: `${publicAppConfig.APP_NAME}`,
-          copyright: `${publicAppConfig.APP_NAME} | Created by ${publicAppConfig.AUTHOR}`,
-          description: `${publicAppConfig.APP_NAME} Online Cinema`,
-          favicon: false,
-          mobileApp: true,
-          mobileAppIOS: true,
-          appleStatusBarStyle: 'black',
-        },
-
-        manifest: {
-          id: '/?standalone=true',
-          name: `${publicAppConfig.APP_NAME} Online Cinema`,
-          short_name: `${publicAppConfig.APP_NAME}`,
-          background_color: '#222222',
-          theme_color: '#222222',
-          lang: 'ru-RU',
-        },
-      },
-    ],
-    [
-      'nuxt-purgecss',
-      {
-        enabled: true,
-        safelist: [/.*--.*/],
-      },
-    ],
+    '@nuxtjs/tailwindcss',
+    '@kevinmarrec/nuxt-pwa',
+    'nuxt-purgecss',
   ],
+
+  purgecss: {
+    enabled: true,
+    safelist: [/.*--.*/],
+  },
+
+  pwa: {
+    workbox: {
+      enabled: false,
+    },
+
+    meta: {
+      lang: 'ru-RU',
+      theme_color: '#222222',
+      author: `${publicAppConfig.APP_NAME}`,
+      // copyright: `${publicAppConfig.APP_NAME} | Created by ${publicAppConfig.AUTHOR}`,
+      description: `${publicAppConfig.APP_NAME} Online Cinema`,
+      favicon: false,
+      mobileApp: true,
+      mobileAppIOS: true,
+      appleStatusBarStyle: 'black',
+    },
+
+    manifest: {
+      id: '/?standalone=true',
+      name: `${publicAppConfig.APP_NAME} Online Cinema`,
+      short_name: `${publicAppConfig.APP_NAME}`,
+      background_color: '#222222',
+      theme_color: '#222222',
+      lang: 'ru-RU',
+    },
+  },
+
+  tailwindcss: {
+    cssPath: '@/assets/styles/_config.css',
+  },
 
   i18n: {
     strategy: 'prefix',
@@ -113,7 +99,7 @@ export default defineNuxtConfig({
 
   sourcemap: true,
 
-  css: ['@/assets/styles/_config.scss'],
+  css: ['@/assets/styles/_config.css', '@/assets/styles/_media.css'],
 
   vite: {
     clearScreen: false,

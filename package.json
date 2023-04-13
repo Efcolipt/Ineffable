@@ -56,5 +56,8 @@
         "infile": "CHANGELOG.md"
       }
     }
+  },
+  "dependencies": {
+    "postcss": "^8.4.21"
   }
 }
