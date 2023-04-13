@@ -1,5 +1,21 @@
 
 
+## [1.1.1](https://github.com/Efcolipt/ineffable/compare/1.1.0...1.1.1) (2023-04-13)
+
+
+### Bug Fixes
+
+* swiper lazy remove ([100a228](https://github.com/Efcolipt/ineffable/commit/100a228048c4525e2b85f30f9a0ca564151ee8ef))
+
+
+### Performance Improvements
+
+* refactoring ([0784f4b](https://github.com/Efcolipt/ineffable/commit/0784f4b9f9f16be21cdd74c0770b23cd2d3de57a))
+* remove useDebug.ts ([eca3fe9](https://github.com/Efcolipt/ineffable/commit/eca3fe9a6db88fbe8d8be189ca79e540e5632182))
+* **seo:** add some perf ([13e96a8](https://github.com/Efcolipt/ineffable/commit/13e96a881a048efb47d27ce4eb2cabee0ea8eab6))
+* tailwind conigure ([5affbe3](https://github.com/Efcolipt/ineffable/commit/5affbe3dd07cc7fd4143f45657b86bdfd7899389))
+* update eslint ([3a80477](https://github.com/Efcolipt/ineffable/commit/3a80477ea2e10251af5e76bd7bc70f2ab5ecdf32))
+
 # [1.1.0](https://github.com/Efcolipt/ineffable/compare/1.0.1-0...1.1.0) (2023-01-29)
 
 
