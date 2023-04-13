@@ -13,7 +13,7 @@ const isVisibleLocaleDropdown = ref(false)
       <div class="header__content">
         <div class="header__brand">
           <NuxtLink to="/">
-            <AppLogo />
+            <UILogo />
           </NuxtLink>
         </div>
         <nav class="header__menu">
@@ -42,7 +42,7 @@ const isVisibleLocaleDropdown = ref(false)
         </nav>
         <div class="header__action">
           <div>
-            <IconSearch />
+            <!-- <IconSearch /> -->
           </div>
           <div class="header__locale">
             <div
@@ -53,7 +53,7 @@ const isVisibleLocaleDropdown = ref(false)
                 {{ locale }}
               </div>
               <div>
-                <IconArrowDown />
+                <!-- <IconArrowDown /> -->
               </div>
             </div>
             <transition mode="in-out">
@@ -78,7 +78,7 @@ const isVisibleLocaleDropdown = ref(false)
           </div>
           <div>
             <UIButton theme="secondary" size="sm">
-              <IconUser />
+              <!-- <IconUser /> -->
               <span>
                 {{ t('auth-button') }}
               </span>
@@ -97,11 +97,11 @@ const isVisibleLocaleDropdown = ref(false)
   left: 0;
   top: 0;
   z-index: 100;
-  background: linear-gradient(
-    180deg,
-    $secondaryDarkColor 0%,
-    rgba(34, 34, 34, 0) 100%
-  );
+  // background: linear-gradient(
+  //   180deg,
+  //   $secondaryDarkColor 0%,
+  //   rgba(34, 34, 34, 0) 100%
+  // );
   height: 155px;
   padding-top: 28px;
 
@@ -145,7 +145,7 @@ const isVisibleLocaleDropdown = ref(false)
 
     &-dropdown {
       position: absolute;
-      background-color: $secondaryLightColor;
+      // background-color: $secondaryLightColor;
       border-radius: 8px;
       min-width: 64px;
       gap: 8px;

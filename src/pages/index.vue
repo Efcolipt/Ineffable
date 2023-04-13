@@ -1,9 +1,5 @@
-<script setup lang="ts">
-const { data } = await useLazyAsyncData(() =>
-  $fetch(`${useRuntimeConfig().public.BASE_API}/info/top`)
-)
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <AppSliderCollectionPopular :collection="data" />
+  <div>asd</div>
 </template>

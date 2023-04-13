@@ -8,7 +8,7 @@ const { t } = useI18n()
     <div class="container">
       <div class="footer__content">
         <div class="flex-content-fluid">
-          <AppLogo theme="white" />
+          <UILogo theme="white" />
           <div>
             <span class="text-md">
               <a href="javascipt:void(0)">{{ t('download.link') }}</a>
@@ -32,7 +32,7 @@ const { t } = useI18n()
               </span>
             </div>
             <div>
-              <IconGithub />
+              <!-- <IconGithub /> -->
             </div>
           </div>
         </div>

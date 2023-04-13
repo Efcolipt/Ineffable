@@ -29,7 +29,23 @@ export default defineNuxtConfig({
   modules: [
     '@nuxtjs/i18n',
     '@nuxtjs/eslint-module',
-    '@nuxtjs/tailwindcss',
+    [
+      '@nuxtjs/tailwindcss',
+      {
+        colors: {
+          primary: '#A189FF',
+          gray: '#444444',
+          'primary-linear':
+            'linear-gradient(90deg, #5E36FF 20.69%, #C74FFF 100%)',
+          'gray-dark': '#222222',
+          'gray-light': '#444444',
+        },
+        fontFamily: {
+          headline: ['Rubik', 'sans-serif'],
+          text: ['Roboto', 'serif'],
+        },
+      },
+    ],
     [
       '@kevinmarrec/nuxt-pwa',
       {
@@ -95,26 +111,11 @@ export default defineNuxtConfig({
     ...privateAppConfig,
   },
 
-  experimental: {
-    inlineSSRStyles: false,
-    reactivityTransform: false,
-  },
-
-  typescript: {
-    shim: false,
-  },
-
   sourcemap: true,
 
   css: ['@/assets/styles/_config.scss'],
 
   vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: '@use "@/assets/styles/_vars.scss" as *;',
-        },
-      },
-    },
+    clearScreen: false,
   },
 })

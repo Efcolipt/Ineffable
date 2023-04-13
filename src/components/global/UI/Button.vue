@@ -34,14 +34,12 @@ withDefaults(defineProps<Props>(), {
 
   &--size {
     &-sm {
-      @include textMixin(14px, 0.04em);
       font-weight: 500;
       border-radius: 8px;
       height: 40px;
     }
 
     &-md {
-      @include textMixin(16px, 0.05em);
       font-weight: 600;
       height: 52px;
     }
@@ -49,11 +47,11 @@ withDefaults(defineProps<Props>(), {
 
   &--theme {
     &-gradient {
-      background-color: $primaryLinearColor;
+      // background-color: $primaryLinearColor;
     }
 
     &-secondary {
-      background-color: $secondaryLightColor;
+      // background-color: $secondaryLightColor;
     }
   }
 }

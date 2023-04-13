@@ -1,30 +1,6 @@
-@import './_reset.scss';
-@import './_vars.scss';
-
-*,
-*:after,
-*:before {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body,html, #__nuxt, .wrapper {
-  height: 100%;
-}
-
-body {
-    background-color: $secondaryDarkColor;
-}
-
-a {
-    text-decoration: none;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .container {
     max-width: 1750px;
@@ -37,46 +13,6 @@ a {
   object-fit: cover;
   width: 100%;
   height: 100%;
-}
-
-.badge {
-  padding: 8px 10px;
-  background-color: $secondaryDarkColor;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  span {
-    font-weight: bold;
-  }
-
-  &--green {
-    color: $secondaryGreenColor;
-  }
-
-  &--gray {
-    color: $secondaryLightGrayColor;
-  }
-}
-
-.headline {
-
-    &-xl {
-        @include headlineMixin('Rubik', 72px, 85px, 700);
-    }
-
-    &-lg {
-        @include headlineMixin('Rubik', 32px, 38px);
-    }
-
-    &-md {
-        @include headlineMixin('Rubik', 24px, 28px);
-    }
-
-    &-sm {
-        @include headlineMixin('Roboto', 20px, 24px, 400);
-        letter-spacing: 0.01em;
-    }
 }
 
 .text {
@@ -92,51 +28,7 @@ a {
         text-transform: uppercase
       }
     }
-
-    &-md {
-        @include textMixin(16px, 0.015em);
-
-        &--blur {
-            opacity: .5;
-        }
-    }
-
-    &-sm {
-        @include textMixin(12px, 0.02em);
-    }
 }
-
-.flex {
-    display: flex;
-
-    &-justify-center {
-        justify-content: center;
-    }
-
-    &-justify-between {
-        justify-content: space-between;
-    }
-
-    &-align-center {
-        align-items: center;
-    }
-
-    &-content-fluid {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    &-gap {
-        @for $i from 1 through 6 {
-            &-#{$i} {
-                gap: 4px * $i;
-            }
-        }
-    }
-}
-
-
 
 
 @import './_media.scss';

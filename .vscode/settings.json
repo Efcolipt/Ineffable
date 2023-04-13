@@ -4,5 +4,9 @@
   },
   "prettier.requireConfig": true,
   "editor.tabSize": 2,
-  "editor.formatOnSave": false
+  "editor.formatOnSave": false,
+  "tailwindCSS.experimental.configFile": ".nuxt/tailwind.config.cjs",
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
 }
