@@ -1,5 +1,7 @@
 
 
+## [1.1.2](https://github.com/Efcolipt/ineffable/compare/1.1.1...1.1.2) (2023-04-14)
+
 ## [1.1.1](https://github.com/Efcolipt/ineffable/compare/1.1.0...1.1.1) (2023-04-13)
 
 
