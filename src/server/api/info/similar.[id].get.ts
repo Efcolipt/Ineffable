@@ -1,7 +1,10 @@
-import { ICollectionByID, IResponseWrapperCollection } from '@/server/types'
+import {
+  ICollectionSimilarByID,
+  IResponseWrapperCollection,
+} from '@/server/types'
 import { request } from '@/server/utils/request'
 
-type IResponse = IResponseWrapperCollection<ICollectionByID>
+type IResponse = IResponseWrapperCollection<ICollectionSimilarByID>
 
 export default defineEventHandler(async (event): Promise<IResponse> => {
   const id = event.context.params?.id
@@ -15,7 +18,7 @@ export default defineEventHandler(async (event): Promise<IResponse> => {
       })
     }
 
-    response = await request<IResponse>(`/films/${id}`)
+    response = await request<IResponse>(`/films/${id}/similars`)
   } catch (exc) {
     console.error(exc)
   }

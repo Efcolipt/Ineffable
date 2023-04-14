@@ -1,7 +1,13 @@
-import { request } from '@/server/api/info/utils/request'
+import { IGenre, ICountry } from '@/server/types'
+import { request } from '@/server/utils/request'
 
-export default defineEventHandler(async () => {
-  const result: any = await request('/filters')
+interface IResponse {
+  genres: IGenre[]
+  countries: ICountry[]
+}
+
+export default defineEventHandler(async (): Promise<IResponse> => {
+  const result = await request<IResponse>('/filters')
 
   return {
     genres: result?.genres ?? [],

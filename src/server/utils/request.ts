@@ -1,7 +1,7 @@
-export const request = async (path: string, opt = {}) => {
+export const request = async <T>(path: string, opt = {}): Promise<T> => {
   const config = useRuntimeConfig().INFO_BD
 
-  return await $fetch(path, {
+  return await $fetch<T>(path, {
     ...opt,
     baseURL: config.API_BASE_URL,
     method: 'GET',

@@ -1,14 +1,21 @@
-import { request } from '@/server/api/info/utils/request'
+import {
+  ListTopType,
+  ICollectionByTop,
+  IResponseWrapperCollection,
+} from '@/server/types'
+import { request } from '@/server/utils/request'
 
-export default defineEventHandler(async (event) => {
+type IResponse = IResponseWrapperCollection<ICollectionByTop[]>
+
+export default defineEventHandler(async (event): Promise<IResponse> => {
   const query = getQuery(event)
 
-  const result: any = await request('/top', {
+  const result = await request<IResponse>('/top', {
     query: {
-      type: query.type ?? 'TOP_250_BEST_FILMS',
+      type: query.type ?? ListTopType.TOP_250_BEST_FILMS,
       page: query.page ?? 1,
     },
   })
 
-  return result?.films ?? []
+  return result
 })
