@@ -1,5 +1,5 @@
 import { IGenre, ICountry } from '@/server/types'
-import { request } from '@/server/utils/request'
+import { fetchCollection } from '@/server/utils/request'
 
 interface IResponse {
   genres: IGenre[]
@@ -7,7 +7,7 @@ interface IResponse {
 }
 
 export default defineEventHandler(async (): Promise<IResponse> => {
-  const result = await request<IResponse>('/filters')
+  const result = await fetchCollection<IResponse>('/filters')
 
   return {
     genres: result?.genres ?? [],
