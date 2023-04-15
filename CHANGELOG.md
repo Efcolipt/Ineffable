@@ -1,5 +1,17 @@
 
 
+## [1.1.3](https://github.com/Efcolipt/ineffable/compare/1.1.2...1.1.3) (2023-04-15)
+
+
+### Bug Fixes
+
+* lint-staged fix path ([1401c1c](https://github.com/Efcolipt/ineffable/commit/1401c1c4fed73ca0fd8cf06e3d08eb6f7a19d5f2))
+
+
+### Performance Improvements
+
+* remove i18n ([6d67880](https://github.com/Efcolipt/ineffable/commit/6d67880625390eeb29f031c4a9cd7b1c1c69b63b))
+
 ## [1.1.2](https://github.com/Efcolipt/ineffable/compare/1.1.1...1.1.2) (2023-04-14)
 
 ## [1.1.1](https://github.com/Efcolipt/ineffable/compare/1.1.0...1.1.1) (2023-04-13)
