@@ -28,7 +28,6 @@ export default defineNuxtConfig({
   srcDir: 'src',
   modules: [
     '@nuxtjs/i18n',
-    '@nuxtjs/eslint-module',
     '@nuxtjs/tailwindcss',
     '@kevinmarrec/nuxt-pwa',
     'nuxt-purgecss',
@@ -68,6 +67,7 @@ export default defineNuxtConfig({
 
   tailwindcss: {
     cssPath: '@/assets/styles/_config.css',
+    config: './tailwind.config.ts',
   },
 
   i18n: {

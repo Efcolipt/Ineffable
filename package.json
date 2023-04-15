@@ -18,7 +18,6 @@
     "@commitlint/config-conventional": "^17.4.4",
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
-    "@nuxtjs/eslint-module": "^4.0.2",
     "@nuxtjs/i18n": "^8.0.0-beta.11",
     "@nuxtjs/tailwindcss": "^6.6.6",
     "@release-it/conventional-changelog": "^5.1.1",
@@ -57,7 +56,5 @@
       }
     }
   },
-  "dependencies": {
-    "postcss": "^8.4.21"
-  }
+  "dependencies": {}
 }
