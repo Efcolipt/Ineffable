@@ -26,13 +26,7 @@ const privateAppConfig = {
 
 export default defineNuxtConfig({
   srcDir: 'src',
-  modules: [
-    '@nuxtjs/i18n',
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/tailwindcss',
-    '@kevinmarrec/nuxt-pwa',
-    'nuxt-purgecss',
-  ],
+  modules: ['@nuxtjs/tailwindcss', '@kevinmarrec/nuxt-pwa', 'nuxt-purgecss'],
 
   purgecss: {
     enabled: true,
@@ -48,7 +42,6 @@ export default defineNuxtConfig({
       lang: 'ru-RU',
       theme_color: '#222222',
       author: `${publicAppConfig.APP_NAME}`,
-      // copyright: `${publicAppConfig.APP_NAME} | Created by ${publicAppConfig.AUTHOR}`,
       description: `${publicAppConfig.APP_NAME} Online Cinema`,
       favicon: false,
       mobileApp: true,
@@ -68,28 +61,7 @@ export default defineNuxtConfig({
 
   tailwindcss: {
     cssPath: '@/assets/styles/_config.css',
-  },
-
-  i18n: {
-    strategy: 'prefix',
-    defaultLocale: 'ru',
-
-    langDir: 'locales',
-
-    locales: [
-      {
-        code: 'ru',
-        name: 'Русский',
-        iso: 'ru-RU',
-        file: 'ru-RU.json',
-      },
-      {
-        name: 'English',
-        code: 'en',
-        iso: 'en-US',
-        file: 'en-US.json',
-      },
-    ],
+    configPath: './tailwind.config.ts',
   },
 
   runtimeConfig: {

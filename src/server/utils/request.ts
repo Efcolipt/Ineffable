@@ -1,4 +1,4 @@
-export const request = async <T>(
+export const fetchCollection = async <T>(
   path: string | Request | Ref<string | Request> | (() => string) | Request,
   opt = {}
 ) => {

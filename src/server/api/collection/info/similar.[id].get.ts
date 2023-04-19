@@ -2,7 +2,7 @@ import {
   ICollectionSimilarByID,
   IResponseWrapperCollection,
 } from '@/server/types'
-import { request } from '@/server/utils/request'
+import { fetchCollection } from '@/server/utils/request'
 
 type IResponse = IResponseWrapperCollection<ICollectionSimilarByID>
 
@@ -18,7 +18,7 @@ export default defineEventHandler(async (event) => {
       })
     }
 
-    response = await request<IResponse>(`/films/${id}/similars`)
+    response = await fetchCollection<IResponse>(`/films/${id}/similars`)
   } catch (exc) {
     console.error(exc)
   }

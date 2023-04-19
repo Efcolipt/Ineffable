@@ -1,5 +1,5 @@
 import { ICollectionByID, IResponseWrapperCollection } from '@/server/types'
-import { request } from '@/server/utils/request'
+import { fetchCollection } from '@/server/utils/request'
 
 type IResponse = IResponseWrapperCollection<ICollectionByID>
 
@@ -13,5 +13,5 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  return await request<IResponse>(`/films/${id}`)
+  return await fetchCollection<IResponse>(`/films/${id}`)
 })
