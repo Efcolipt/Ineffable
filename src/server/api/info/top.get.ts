@@ -7,7 +7,7 @@ import { request } from '@/server/utils/request'
 
 type IResponse = IResponseWrapperCollection<ICollectionByTop[]>
 
-export default defineEventHandler(async (event): Promise<IResponse> => {
+export default defineEventHandler(async (event) => {
   const query = getQuery(event)
 
   const result = await request<IResponse>('/top', {

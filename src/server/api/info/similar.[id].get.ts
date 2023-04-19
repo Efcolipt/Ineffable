@@ -6,7 +6,7 @@ import { request } from '@/server/utils/request'
 
 type IResponse = IResponseWrapperCollection<ICollectionSimilarByID>
 
-export default defineEventHandler(async (event): Promise<IResponse> => {
+export default defineEventHandler(async (event) => {
   const id = event.context.params?.id
   let response = null
 

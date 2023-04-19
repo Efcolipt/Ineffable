@@ -6,11 +6,6 @@ interface IResponse {
   countries: ICountry[]
 }
 
-export default defineEventHandler(async (): Promise<IResponse> => {
-  const result = await request<IResponse>('/filters')
-
-  return {
-    genres: result?.genres ?? [],
-    countries: result?.countries ?? [],
-  }
+export default defineEventHandler(async () => {
+  return await request<IResponse>('/filters')
 })

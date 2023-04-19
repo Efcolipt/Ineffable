@@ -1,7 +1,10 @@
-export const request = async <T>(path: string, opt = {}): Promise<T> => {
+export const request = async <T>(
+  path: string | Request | Ref<string | Request> | (() => string) | Request,
+  opt = {}
+) => {
   const config = useRuntimeConfig().INFO_BD
 
-  return await $fetch<T>(path, {
+  return await useFetch<T>(path, {
     ...opt,
     baseURL: config.API_BASE_URL,
     method: 'GET',
