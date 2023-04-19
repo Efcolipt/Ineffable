@@ -1,30 +1,24 @@
 <script lang="ts" setup>
 const route = useRoute()
-const { t } = useI18n()
-
 const config = useRuntimeConfig().public
 
-const head = useLocaleHead({
-  identifierAttribute: 'id',
-  addDirAttribute: true,
-  addSeoAttributes: true,
-})
-
-const title = computed(() =>
-  t((route.meta?.title as string) ?? 'page.head.title.default')
+const title = computed(
+  () =>
+    (route.meta?.title as string) ??
+    'Онлайн кинотеатр для просмотра фильмов и сериалов'
 )
 
 useHead({
   title,
-  htmlAttrs: head.value.htmlAttrs,
+  // htmlAttrs: head.value.htmlAttrs,
   titleTemplate: `%s | ${config.APP_NAME}`,
   meta: [
-    ...(head.value.meta ?? []),
+    // ...(head.value.meta ?? []),
     { 'http-equiv': 'x-ua-compatible', content: 'IE=edge,chrome=1' },
     { name: 'HandheldFriendly', content: 'true' },
   ],
   link: [
-    ...(head.value.link ?? []),
+    // ...(head.value.link ?? []),
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
     {
@@ -41,18 +35,11 @@ useHead({
 </script>
 
 <template>
-  <Html>
-    <Head>
-      <Title>{{ title }}</Title>
-    </Head>
-    <Body>
-      <div class="wrapper">
-        <TheHeader />
-        <main>
-          <slot />
-        </main>
-        <TheFooter />
-      </div>
-    </Body>
-  </Html>
+  <div class="wrapper">
+    <TheHeader />
+    <main>
+      <slot />
+    </main>
+    <TheFooter />
+  </div>
 </template>

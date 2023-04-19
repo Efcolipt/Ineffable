@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const config = useRuntimeConfig().public
-const { t } = useI18n()
 </script>
 
 <template>
@@ -11,9 +10,8 @@ const { t } = useI18n()
           <UILogo theme="white" />
           <div>
             <span class="text-md">
-              <a href="javascipt:void(0)">{{ t('download.link') }}</a>
-              {{ t('download.app') }} “{{ config.APP_NAME }}”
-              {{ t('download.desktop') }}
+              <a href="javascipt:void(0)">Скачать</a>
+              приложение “{{ config.APP_NAME }}” на ваш компьютер
             </span>
           </div>
         </div>
@@ -27,7 +25,7 @@ const { t } = useI18n()
           <div class="flex flex-align-center flex-gap-3">
             <div>
               <span class="text-md text-md--blur">
-                {{ t('release') }} v{{ config.VERSION }}
+                Релиз версии v{{ config.VERSION }}
                 {{ config.TARGET }}
               </span>
             </div>

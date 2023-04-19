@@ -1,12 +1,3 @@
-<script setup lang="ts">
-import { LocaleObject } from 'vue-i18n-routing'
-
-const { locales, t, locale } = useI18n()
-const switchLocalePath = useSwitchLocalePath()
-
-const isVisibleLocaleDropdown = ref(false)
-</script>
-
 <template>
   <header class="header">
     <div class="container">
@@ -19,24 +10,16 @@ const isVisibleLocaleDropdown = ref(false)
         <nav class="header__menu">
           <ul class="header__list">
             <li class="header__item">
-              <NuxtLink to="/" class="text-md">
-                {{ t('menu.home') }}
-              </NuxtLink>
+              <NuxtLink to="/" class="text-md"> Главная </NuxtLink>
             </li>
             <li class="header__item">
-              <NuxtLink to="/" class="text-md">
-                {{ t('menu.movies') }}
-              </NuxtLink>
+              <NuxtLink to="/" class="text-md"> Фильмы </NuxtLink>
             </li>
             <li class="header__item">
-              <NuxtLink to="/" class="text-md">
-                {{ t('menu.series') }}
-              </NuxtLink>
+              <NuxtLink to="/" class="text-md"> Сериалы </NuxtLink>
             </li>
             <li class="header__item">
-              <NuxtLink to="/" class="text-md">
-                {{ t('menu.mult') }}
-              </NuxtLink>
+              <NuxtLink to="/" class="text-md"> Мультфильмы </NuxtLink>
             </li>
           </ul>
         </nav>
@@ -44,7 +27,7 @@ const isVisibleLocaleDropdown = ref(false)
           <div>
             <!-- <IconSearch /> -->
           </div>
-          <div class="header__locale">
+          <!-- <div class="header__locale">
             <div
               class="header__locale-list"
               @click="isVisibleLocaleDropdown = !isVisibleLocaleDropdown"
@@ -53,7 +36,7 @@ const isVisibleLocaleDropdown = ref(false)
                 {{ locale }}
               </div>
               <div>
-                <!-- <IconArrowDown /> -->
+                <IconArrowDown />
               </div>
             </div>
             <transition mode="in-out">
@@ -75,13 +58,11 @@ const isVisibleLocaleDropdown = ref(false)
                 </li>
               </ul>
             </transition>
-          </div>
+          </div> -->
           <div>
             <UIButton theme="secondary" size="sm">
               <!-- <IconUser /> -->
-              <span>
-                {{ t('auth-button') }}
-              </span>
+              <span> Вход / Регистрация </span>
             </UIButton>
           </div>
         </div>
