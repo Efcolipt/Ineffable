@@ -1,5 +1,12 @@
 
 
+## [1.1.4](https://github.com/Efcolipt/ineffable/compare/1.1.3...1.1.4) (2023-04-19)
+
+
+### Performance Improvements
+
+* temp ([13d81cb](https://github.com/Efcolipt/ineffable/commit/13d81cb8b70eed6a69a86a36be897112175f93c8))
+
 ## [1.1.3](https://github.com/Efcolipt/ineffable/compare/1.1.2...1.1.3) (2023-04-15)
 
 
