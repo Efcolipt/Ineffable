@@ -12,6 +12,13 @@ export interface ICountry {
   country: string
 }
 
+export enum ListTypeCollection {
+  FILM = 'FILM',
+  TV_SHOW = 'TV_SHOW',
+  SERIAL = 'SERIAL',
+  UNKNOWN = 'UNKNOWN',
+}
+
 export interface ICollectionByID {
   kinopoiskId: number
   imdbId: string
@@ -44,7 +51,7 @@ export interface ICollectionByID {
   editorAnnotation: string
   isTicketsAvailable: boolean
   productionStatus: string
-  type: 'FILM' | 'SERIAL'
+  type: ListTypeCollection
   ratingMpaa: string
   ratingAgeLimits: string
   hasImax: false
@@ -82,6 +89,22 @@ export interface ICollectionSimilarByID {
   posterUrl: string
   posterUrlPreview: string
   relationType: string
+}
+
+export interface ICollectionBySearch {
+  filmId: number
+  nameRu: string
+  nameEn: string
+  type: ListTypeCollection
+  year: string
+  description: string
+  filmLength: string
+  countries: ICountry[]
+  genres: IGenre[]
+  rating: string
+  ratingVoteCount: number
+  posterUrl: string
+  posterUrlPreview: string
 }
 
 export type IResponseWrapperCollection<Collection> = Collection extends any[]
