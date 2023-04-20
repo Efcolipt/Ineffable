@@ -1,5 +1,13 @@
 
 
+# [1.2.0](https://github.com/Efcolipt/ineffable/compare/1.1.4...1.2.0) (2023-04-20)
+
+
+### Features
+
+* add get video api ([e7a4735](https://github.com/Efcolipt/ineffable/commit/e7a473551a5d2de36823b72f62512136de6c9ae8))
+* add search film method ([dfb33a6](https://github.com/Efcolipt/ineffable/commit/dfb33a6587a834d43f72040c974e36c6752d0b2b))
+
 ## [1.1.4](https://github.com/Efcolipt/ineffable/compare/1.1.3...1.1.4) (2023-04-19)
 
 
