@@ -58,8 +58,9 @@ export default defineNuxtConfig({
       API_BASE_URL: 'https://kinopoiskapiunofficial.tech/api/v2.2/films',
     },
     VIDEO_BD: {
-      API_KEY: '850a24d2-f3a2-4451-b89e-1d20d8149663',
-      API_PROP: 'X-API-KEY',
+      API_KEY: '7250d60740fc5811592ea4fcf893239f',
+      API_PROP: 'token',
+      API_BASE_URL: 'https://bazon.cc/api',
     },
   },
 

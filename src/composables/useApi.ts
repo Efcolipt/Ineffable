@@ -11,13 +11,14 @@ export const useApi = () => {
   const configInfo = config.INFO_BD
   const configVideo = config.VIDEO_BD
 
-  const fetchInfoCollectionApi = async <T>(
+  const fetchInfoCollectionApi = async <T = unknown>(
     path: FetchPath,
     options: FetchOptions = {}
   ) => {
     return await useFetch<T>(path, {
       ...options,
       method: 'GET',
+      baseURL: configInfo.API_BASE_URL,
       headers: {
         [configInfo.API_PROP]: configInfo.API_KEY,
         'Content-Type': 'application/json',
@@ -25,13 +26,14 @@ export const useApi = () => {
     })
   }
 
-  const fetchVideoCollectionApi = async <T>(
+  const fetchVideoCollectionApi = async <T = unknown>(
     path: FetchPath,
     options: FetchOptions = {}
   ) => {
     return await useFetch<T>(path, {
       ...options,
       method: 'GET',
+      baseURL: configVideo.API_BASE_URL,
       headers: {
         [configVideo.API_PROP]: configVideo.API_KEY,
         'Content-Type': 'application/json',
