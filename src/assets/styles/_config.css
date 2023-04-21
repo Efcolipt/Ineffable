@@ -20,6 +20,12 @@
   }
 }
 
+@layer components {
+  .gradient-gray {
+    @apply from-gray to-dark;
+  }
+}
+
 @layer utilities {
   .text-clamp {
     -webkit-line-clamp: 2;

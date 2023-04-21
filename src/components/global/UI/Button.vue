@@ -40,6 +40,10 @@ withDefaults(defineProps<Props>(), {
       @apply bg-primary;
     }
 
+    &-white {
+      @apply bg-white text-primary;
+    }
+
     &-secondary {
       @apply bg-gray text-white;
     }
