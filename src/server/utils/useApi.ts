@@ -1,5 +1,7 @@
+import type { NitroFetchOptions } from 'nitropack'
+
 type FetchPath = string
-type FetchOptions = any
+type FetchOptions = NitroFetchOptions<any>
 
 export const useApi = () => {
   const config = useRuntimeConfig()
