@@ -3,28 +3,28 @@ const config = useRuntimeConfig().public
 </script>
 
 <template>
-  <footer class="footer">
+  <footer class="mt-auto py-10">
     <div class="container">
-      <div class="footer__content">
-        <div class="flex-content-fluid">
+      <div class="flex flex-col justify-center">
+        <div class="flex justify-between items-center">
           <UILogo theme="white" />
           <div>
-            <span class="text-md">
-              <a href="javascipt:void(0)">Скачать</a>
-              приложение “{{ config.APP_NAME }}” на ваш компьютер
+            <span class="base-text text-white">
+              <a href="javascipt:void(0)" class="underline">Скачать</a>
+              приложение "{{ config.APP_NAME }}" на ваш компьютер
             </span>
           </div>
         </div>
-        <div class="flex-content-fluid">
+        <div class="flex justify-between items-center opacity-50 mt-4">
           <div>
-            <span class="text-md text-md--blur">
+            <span class="base-text text-white">
               © 2018 - {{ new Date().getUTCFullYear() }} {{ config.APP_NAME }} —
               ISC License
             </span>
           </div>
-          <div class="flex flex-align-center flex-gap-3">
+          <div class="flex flex-align-center">
             <div>
-              <span class="text-md text-md--blur">
+              <span class="base-text text-white">
                 Релиз версии v{{ config.VERSION }}
                 {{ config.TARGET }}
               </span>
@@ -38,31 +38,3 @@ const config = useRuntimeConfig().public
     </div>
   </footer>
 </template>
-
-<style lang="scss" scoped>
-.footer {
-  margin-top: auto;
-  padding-bottom: 40px;
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    & > div {
-      &:first-child {
-        margin-bottom: 16px;
-
-        span {
-          opacity: 1;
-
-          a {
-            text-decoration: underline;
-            color: #fff;
-          }
-        }
-      }
-    }
-  }
-}
-</style>

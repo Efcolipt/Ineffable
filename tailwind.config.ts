@@ -5,8 +5,10 @@ export default <Partial<Config>>{
     colors: {
       primary: '#A189FF',
       gray: '#444444',
+      white: '#fff',
+      dark: '#222222',
+      'dark-light': ' #303030',
       'primary-linear': 'linear-gradient(90deg, #5E36FF 20.69%, #C74FFF 100%)',
-      'gray-dark': '#222222',
       'gray-light': '#444444',
     },
     fontFamily: {
