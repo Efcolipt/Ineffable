@@ -21,7 +21,7 @@ withDefaults(defineProps<Props>(), {
 
 <style scoped lang="scss">
 .btn-default {
-  @apply flex justify-center items-center px-4 rounded-lg max-w-max gap-2 cursor-pointer border-0 ease-in-out duration-700;
+  @apply flex justify-center items-center px-4 rounded-lg max-w-max gap-2 cursor-pointer border-0 ease-in-out duration-700 hover:bg-primary;
 
   &--size {
     &-sm {

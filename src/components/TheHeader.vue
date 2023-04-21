@@ -12,7 +12,7 @@
         <nav class="header__menu">
           <ul class="flex items-center gap-11">
             <li class="header__item">
-              <NuxtLink to="/"> Главная </NuxtLink>
+              <NuxtLink to="/"> Лента </NuxtLink>
             </li>
             <li class="header__item">
               <NuxtLink to="/"> Фильмы </NuxtLink>
@@ -25,14 +25,16 @@
             </li>
           </ul>
         </nav>
-        <div class="flex items-center gap-11">
+        <div class="flex items-center gap-10">
           <div>
-            <!-- <IconSearch /> -->
+            <UIIconBase name="search" />
           </div>
           <div>
             <UIButton theme="secondary" size="sm">
-              <!-- <IconUser /> -->
-              <span> Вход / Регистрация </span>
+              <UIIconBase name="account-circle" />
+              <span class="text-sm base-text text-white">
+                Вход / Регистрация
+              </span>
             </UIButton>
           </div>
         </div>
@@ -45,7 +47,7 @@
 .header {
   &__item {
     a {
-      @apply base-text text-white;
+      @apply base-text text-white hover:text-primary transition-colors duration-300;
     }
   }
 }
