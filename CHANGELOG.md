@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.5.0](https://github.com/Efcolipt/ineffable/compare/1.4.0...1.5.0) (2023-04-21)
+
+
+### Features
+
+* remove dist packages tags ([c5c816e](https://github.com/Efcolipt/ineffable/commit/c5c816efd87f1ae286eafd2718f241ec143d12cd))
+
 # [1.4.0](https://github.com/Efcolipt/ineffable/compare/1.3.0...1.4.0) (2023-04-21)
 
 
