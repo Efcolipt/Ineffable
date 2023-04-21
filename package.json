@@ -14,7 +14,7 @@
     "build": "nuxt clean && nuxt build",
     "dev": "nuxt prepare && nuxt dev",
     "postinstall": "nuxt prepare",
-    "release": "release-it",
+    "release": "dotenv release-it --",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -45,12 +45,7 @@
   },
   "release-it": {
     "git": {
-      "commitMessage": "chore(release): v${version}",
-      "push": true,
-      "commit": true,
-      "tag": true,
-      "tagAnnotation": "Release v${version}",
-      "requireCleanWorkingDir": true
+      "commitMessage": "chore(release): v${version}"
     },
     "github": {
       "release": true,
@@ -65,10 +60,6 @@
         "infile": "CHANGELOG.md",
         "header": "# Changelog"
       }
-    },
-    "hooks": {
-      "after:bump": "yarn build",
-      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     }
   },
   "commitlint": {
