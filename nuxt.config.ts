@@ -54,17 +54,20 @@ export default defineNuxtConfig({
     public: publicAppConfig,
     INFO_BD: {
       API_VERSIONS: {
-        v1: '/v2.1/films',
-        v2: '/v2.2/films',
+        v1: process.env.API_INFO_V1,
+        v2: process.env.API_INFO_V2,
       },
-      API_KEY: '850a24d2-f3a2-4451-b89e-1d20d8149663',
-      API_PROP: 'X-API-KEY',
-      API_BASE_URL: 'https://kinopoiskapiunofficial.tech/api',
+      API_KEY: process.env.API_KEY_INFO,
+      API_PROP: process.env.API_PROP_INFO,
+      API_BASE_URL: process.env.API_BASE_URL_INFO,
     },
     VIDEO_BD: {
-      API_KEY: '7250d60740fc5811592ea4fcf893239f',
-      API_PROP: 'token',
-      API_BASE_URL: 'https://bazon.cc/api',
+      API_VERSIONS: {
+        v1: process.env.API_VIDEO_V1,
+      },
+      API_KEY: process.env.API_KEY_VIDEO,
+      API_PROP: process.env.API_PROP_VIDEO,
+      API_BASE_URL: process.env.API_BASE_URL_VIDEO,
     },
   },
 
