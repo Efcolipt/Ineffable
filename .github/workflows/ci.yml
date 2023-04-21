@@ -29,6 +29,7 @@ jobs:
       run: yarn install --frozen-lockfile
       env:
         CI: true
+        HUSKY: 0
     - name: Build
       run: yarn build
     - name: Execute Tests
