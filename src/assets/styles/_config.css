@@ -20,37 +20,21 @@
   }
 }
 
-@layer components {
-  .gradient-gray {
-    @apply from-gray to-dark;
-  }
-}
-
-@layer utilities {
-  .text-clamp {
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    display: -webkit-box;
-    overflow: hidden;
-  }
-
-  .text--first-letter::first-letter {
-    text-transform: uppercase
-  }
-}
-
-@layer components {
-  .base-text {
-    @apply font-text text-dark-light tracking-wide;
-  }
-}
-
 html,body, #__nuxt {
   @apply h-full;
 }
 
 body {
   @apply bg-dark;
+}
+
+
+.gradient-gray {
+  @apply from-gray to-dark;
+}
+
+.base-text {
+  @apply font-text text-white tracking-wide;
 }
 
 .wrapper {
@@ -62,8 +46,6 @@ body {
 }
 
 .image {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
+  @apply object-cover w-full h-full;
 }
 

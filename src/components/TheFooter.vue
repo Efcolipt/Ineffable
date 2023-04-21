@@ -15,7 +15,7 @@ const config = useRuntimeConfig().public
         <div class="flex justify-between items-center">
           <UILogo theme="white" />
           <div>
-            <span class="base-text text-white">
+            <span class="base-text">
               <a href="javascipt:void(0)" class="underline">Скачать</a>
               приложение "{{ config.APP_NAME }}" на ваш компьютер
             </span>
@@ -23,14 +23,14 @@ const config = useRuntimeConfig().public
         </div>
         <div class="flex justify-between items-center opacity-50 mt-4">
           <div>
-            <span class="base-text text-white">
+            <span class="base-text">
               © 2018 - {{ new Date().getUTCFullYear() }} {{ config.APP_NAME }} —
               ISC License
             </span>
           </div>
           <div class="flex flex-align-center gap-4">
             <div>
-              <span class="base-text text-white">
+              <span class="base-text">
                 Релиз версии v{{ config.VERSION }}
                 {{ config.TARGET }}
               </span>
