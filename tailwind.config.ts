@@ -10,6 +10,7 @@ export default <Partial<Config>>{
       red: '#FF3D3D',
       green: '#7CDD00',
       yellow: '#FFD600',
+      pink: '#D479FF',
       'dark-light': ' #303030',
       'primary-linear': 'linear-gradient(90deg, #5E36FF 20.69%, #C74FFF 100%)',
     },

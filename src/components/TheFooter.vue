@@ -4,6 +4,12 @@ const config = useRuntimeConfig().public
 
 <template>
   <footer class="mt-auto py-10">
+    <!-- <div
+      class="absolute left-1/2 -translate-x-1/2 flex justify-between max-w-4xl h-full w-full gap-5 top-full z-10 opacity-70"
+    >
+      <div class="h-[320px] w-full bg-pink blur-3xl rounded-full"></div>
+      <div class="h-[420px] w-full bg-primary blur-3xl rounded-full"></div>
+    </div> -->
     <div class="container">
       <div class="flex flex-col justify-center">
         <div class="flex justify-between items-center">
