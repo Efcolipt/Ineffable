@@ -8,7 +8,12 @@ const publicAppConfig = {
 
 export default defineNuxtConfig({
   // Modules
-  modules: ['@nuxtjs/tailwindcss', '@kevinmarrec/nuxt-pwa', 'nuxt-purgecss'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@kevinmarrec/nuxt-pwa',
+    'nuxt-purgecss',
+    '@nuxtjs/supabase',
+  ],
 
   // Modules config
   purgecss: {
