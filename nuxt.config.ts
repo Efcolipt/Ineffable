@@ -54,8 +54,11 @@ export default defineNuxtConfig({
     public: publicAppConfig,
     INFO_BD: {
       API_VERSIONS: {
-        v1: process.env.API_INFO_V1,
-        v2: process.env.API_INFO_V2,
+        list: {
+          v1: process.env.API_INFO_V1,
+          v2: process.env.API_INFO_V2,
+        },
+        default: 'v2',
       },
       API_KEY: process.env.API_KEY_INFO,
       API_PROP: process.env.API_PROP_INFO,
@@ -63,7 +66,10 @@ export default defineNuxtConfig({
     },
     VIDEO_BD: {
       API_VERSIONS: {
-        v1: process.env.API_VIDEO_V1,
+        list: {
+          v1: process.env.API_VIDEO_V1,
+        },
+        default: 'v1',
       },
       API_KEY: process.env.API_KEY_VIDEO,
       API_PROP: process.env.API_PROP_VIDEO,

@@ -9,12 +9,12 @@ export const useApi = () => {
   const fetchInfoCollectionApi = async <T = unknown>(
     path: FetchPath,
     options: FetchOptions = {},
-    verison: 'v1' | 'v2' = 'v2'
+    verison: 'v1' | 'v2' = <'v1' | 'v2'>configInfo.API_VERSIONS.default
   ): Promise<T> => {
     return await $fetch<T>(path, {
       ...options,
       method: 'GET',
-      baseURL: configInfo.API_BASE_URL + configInfo.API_VERSIONS[verison],
+      baseURL: configInfo.API_BASE_URL + configInfo.API_VERSIONS.list[verison],
       headers: {
         [configInfo.API_PROP]: configInfo.API_KEY,
         'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ export const useApi = () => {
   const fetchVideoCollectionApi = async <T = unknown>(
     path: FetchPath,
     options: FetchOptions = {},
-    verison: 'v1' = 'v1'
+    verison: 'v1' = <'v1'>configInfo.API_VERSIONS.default
   ): Promise<T> => {
     options.query = {
       ...options.query,
@@ -35,7 +35,7 @@ export const useApi = () => {
     return await $fetch<T>(path, {
       ...options,
       method: 'GET',
-      baseURL: configVideo.API_BASE_URL + configInfo.API_VERSIONS[verison],
+      baseURL: configVideo.API_BASE_URL + configInfo.API_VERSIONS.list[verison],
       headers: {
         'Content-Type': 'application/json',
       },
