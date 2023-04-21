@@ -71,7 +71,5 @@ export default defineNuxtConfig({
     },
   },
 
-  sourcemap: true,
-
   css: ['@/assets/styles/_config.css', '@/assets/styles/_media.css'],
 })
