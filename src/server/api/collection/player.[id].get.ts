@@ -1,7 +1,6 @@
 import {
-  ListTopType,
-  ICollectionByTop,
-  IResponseWrapperCollection,
+  IResponseWrapperCollectionVideo,
+  ICollectionPlayer,
 } from '@/server/types'
 
 export default defineEventHandler(async (event) => {
@@ -16,7 +15,9 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  return await fetchVideoCollectionApi('/search', {
+  return await fetchVideoCollectionApi<
+    IResponseWrapperCollectionVideo<ICollectionPlayer[]>
+  >('/search', {
     query: {
       kp: id,
     },
