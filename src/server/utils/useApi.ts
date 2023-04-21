@@ -1,9 +1,4 @@
-type FetchPath =
-  | string
-  | Request
-  | Ref<string | Request>
-  | (() => string)
-  | Request
+type FetchPath = string
 type FetchOptions = any
 
 export const useApi = () => {
@@ -13,12 +8,13 @@ export const useApi = () => {
 
   const fetchInfoCollectionApi = async <T = unknown>(
     path: FetchPath,
-    options: FetchOptions = {}
-  ) => {
-    return await useFetch<T>(path, {
+    options: FetchOptions = {},
+    verison: string = configInfo.API_VERSIONS.v2
+  ): Promise<T> => {
+    return await $fetch<T>(path, {
       ...options,
       method: 'GET',
-      baseURL: configInfo.API_BASE_URL,
+      baseURL: configInfo.API_BASE_URL + verison,
       headers: {
         [configInfo.API_PROP]: configInfo.API_KEY,
         'Content-Type': 'application/json',
@@ -29,13 +25,17 @@ export const useApi = () => {
   const fetchVideoCollectionApi = async <T = unknown>(
     path: FetchPath,
     options: FetchOptions = {}
-  ) => {
-    return await useFetch<T>(path, {
+  ): Promise<T> => {
+    options.query = {
+      ...options.query,
+      [configVideo.API_PROP]: configVideo.API_KEY,
+    }
+
+    return await $fetch<T>(path, {
       ...options,
       method: 'GET',
       baseURL: configVideo.API_BASE_URL,
       headers: {
-        [configVideo.API_PROP]: configVideo.API_KEY,
         'Content-Type': 'application/json',
       },
     })

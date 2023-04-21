@@ -1,7 +1,4 @@
-import {
-  ICollectionSimilarByID,
-  IResponseWrapperCollection,
-} from '@/server/types'
+import { ICollectionByID, IResponseWrapperCollection } from '@/server/types'
 
 export default defineEventHandler(async (event) => {
   const { fetchInfoCollectionApi } = useApi()
@@ -15,6 +12,6 @@ export default defineEventHandler(async (event) => {
   }
 
   return await fetchInfoCollectionApi<
-    IResponseWrapperCollection<ICollectionSimilarByID>
-  >(`/films/${id}/similars`)
+    IResponseWrapperCollection<ICollectionByID>
+  >(`/${id}`)
 })

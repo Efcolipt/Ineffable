@@ -53,9 +53,13 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: publicAppConfig,
     INFO_BD: {
+      API_VERSIONS: {
+        v1: '/v2.1/films',
+        v2: '/v2.2/films',
+      },
       API_KEY: '850a24d2-f3a2-4451-b89e-1d20d8149663',
       API_PROP: 'X-API-KEY',
-      API_BASE_URL: 'https://kinopoiskapiunofficial.tech/api/v2.2/films',
+      API_BASE_URL: 'https://kinopoiskapiunofficial.tech/api',
     },
     VIDEO_BD: {
       API_KEY: '7250d60740fc5811592ea4fcf893239f',
