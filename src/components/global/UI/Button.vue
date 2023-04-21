@@ -21,21 +21,11 @@ withDefaults(defineProps<Props>(), {
 
 <style scoped lang="scss">
 .btn-default {
-  padding: 0 18px;
-  width: max-content;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: background-color 0.6s ease-in-out;
-  gap: 8px;
-  cursor: pointer;
-  border: none;
+  @apply flex justify-center items-center px-4 rounded-lg max-w-max gap-2 cursor-pointer border-0 ease-in-out duration-700;
 
   &--size {
     &-sm {
       font-weight: 500;
-      border-radius: 8px;
       height: 40px;
     }
 
@@ -47,11 +37,11 @@ withDefaults(defineProps<Props>(), {
 
   &--theme {
     &-gradient {
-      // background-color: $primaryLinearColor;
+      @apply bg-primary;
     }
 
     &-secondary {
-      // background-color: $secondaryLightColor;
+      @apply bg-gray text-white;
     }
   }
 }
