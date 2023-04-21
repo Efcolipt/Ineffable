@@ -6,19 +6,12 @@ on:
   pull_request:
     branches: [ "dev" ]
 
-jobs:
-  cancel-previous-run:
-    runs-on: [self-hosted, linux, htz]
-    if: github.event.pull_request.draft == false
-    steps:
-      - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.11.0
-        with:
-          access_token: ${{ github.token }}
+concurrency:
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
 
+jobs:
   build:
-    needs: cancel-previous-run
-    
     runs-on: ubuntu-latest
 
     strategy:
