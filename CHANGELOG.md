@@ -1,5 +1,12 @@
 
 
+## [1.2.1](https://github.com/Efcolipt/ineffable/compare/1.2.0...1.2.1) (2023-04-21)
+
+
+### Performance Improvements
+
+* add types for player ([8b94492](https://github.com/Efcolipt/ineffable/commit/8b944921e5785bbe0d077e241b774fbe374f8b21))
+
 # [1.2.0](https://github.com/Efcolipt/ineffable/compare/1.1.4...1.2.0) (2023-04-20)
 
 
