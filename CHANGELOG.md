@@ -1,5 +1,13 @@
 # Changelog
 
+# [1.6.0](https://github.com/Efcolipt/ineffable/compare/1.5.0...1.6.0) (2023-04-21)
+
+
+### Features
+
+* add versioning server api ([ed5bf11](https://github.com/Efcolipt/ineffable/commit/ed5bf11951d2c938cf98a87af05ae945da28dbff))
+* add vitest ([ad867dc](https://github.com/Efcolipt/ineffable/commit/ad867dc07c8d9a39ff7a22d5eacacbb20ca44cae))
+
 # [1.5.0](https://github.com/Efcolipt/ineffable/compare/1.4.0...1.5.0) (2023-04-21)
 
 
