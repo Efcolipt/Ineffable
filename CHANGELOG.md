@@ -1,4 +1,16 @@
+# Changelog
 
+# [1.3.0](https://github.com/Efcolipt/ineffable/compare/1.2.1...1.3.0) (2023-04-21)
+
+
+### Features
+
+* add release notes ([af6fb73](https://github.com/Efcolipt/ineffable/commit/af6fb7369276b7e8cf1019e63f3ea9e0c3ac11bd))
+
+
+### Performance Improvements
+
+* configure release-it package ([0284a9b](https://github.com/Efcolipt/ineffable/commit/0284a9bf7b32059c8739fe5d7694177601ad0588))
 
 ## [1.2.1](https://github.com/Efcolipt/ineffable/compare/1.2.0...1.2.1) (2023-04-21)
 
