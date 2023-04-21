@@ -50,10 +50,7 @@
     },
     "github": {
       "release": true,
-      "releaseName": "v${version}",
-      "assets": [
-        "dist/*.zip"
-      ]
+      "releaseName": "v${version}"
     },
     "plugins": {
       "@release-it/conventional-changelog": {
