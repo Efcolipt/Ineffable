@@ -45,20 +45,42 @@
   },
   "release-it": {
     "git": {
-      "commitMessage": "chore(release): v${version}"
+      "commitMessage": "chore(release): v${version}",
+      "push": true,
+      "commit": true,
+      "tag": true,
+      "tagAnnotation": "Release v${version}",
+      "requireCleanWorkingDir": true
     },
     "github": {
       "release": true,
       "releaseName": "v${version}",
-      "releaseNotes": "generate-release-notes.sh --from=${latestTag} --to=${tagName}",
-      "assets": ["dist/*.zip"]
+      "assets": [
+        "dist/*.zip"
+      ]
     },
     "plugins": {
       "@release-it/conventional-changelog": {
         "preset": "angular",
-        "infile": "CHANGELOG.md"
+        "infile": "CHANGELOG.md",
+        "header": "# Changelog"
       }
+    },
+    "hooks": {
+      "after:bump": "yarn build",
+      "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     }
   },
-  "dependencies": {}
+  "commitlint": {
+    "rules": {
+      "header-max-length": [
+        2,
+        "always",
+        130
+      ]
+    },
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
 }
