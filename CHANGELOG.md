@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.4.0](https://github.com/Efcolipt/ineffable/compare/1.3.0...1.4.0) (2023-04-21)
+
+
+### Features
+
+* add github token ([5e694b7](https://github.com/Efcolipt/ineffable/commit/5e694b75ac1e47132c1969ec8c0a66b45546698e))
+
 # [1.3.0](https://github.com/Efcolipt/ineffable/compare/1.2.1...1.3.0) (2023-04-21)
 
 
