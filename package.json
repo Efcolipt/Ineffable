@@ -15,7 +15,8 @@
     "dev": "nuxt prepare && nuxt dev",
     "postinstall": "nuxt prepare",
     "release": "dotenv release-it --",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "nuxi test"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",
