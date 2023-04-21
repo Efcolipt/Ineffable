@@ -49,7 +49,9 @@
     },
     "github": {
       "release": true,
-      "releaseName": "v${version}"
+      "releaseName": "v${version}",
+      "releaseNotes": "generate-release-notes.sh --from=${latestTag} --to=${tagName}",
+      "assets": ["dist/*.zip"]
     },
     "plugins": {
       "@release-it/conventional-changelog": {
