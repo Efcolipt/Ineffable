@@ -11,8 +11,8 @@
     "node": ">=16.10.0"
   },
   "scripts": {
-    "build": "nuxt clean && nuxt build",
-    "dev": "nuxt prepare && nuxt dev",
+    "build": "nuxt build",
+    "dev": "nuxt dev",
     "postinstall": "nuxt prepare",
     "release": "dotenv release-it --",
     "prepare": "husky install",

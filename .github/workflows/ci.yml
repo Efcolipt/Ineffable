@@ -1,4 +1,4 @@
-name: Build & Tests
+name: Build
 
 on:
   push:
@@ -14,38 +14,31 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
+        name: 🛒 "Checkout Source code"
+        
+      - name: ✨ Setup Node.js environment
+        uses: actions/setup-node@v3.1.1
         with:
-          node-version: ${{ matrix.node-version }}
+          version: 16.x
           cache: 'yarn'
-      - name: Install Deps
-        run: yarn install --frozen-lockfile
+
+      - name: 🛠️ Build
+        run: |
+          yarn install --frozen-lockfile
+          npx cross-env NITRO_PRESET=netlify yarn build
         env:
           CI: true
           HUSKY: 0
-      - name: Build
-        run: yarn build
+
       - name: Execute Tests
         run: yarn test
 
-  deploy:
-    needs: [build]
-    runs-on: ubuntu-latest
-      
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Deploy to Netlify
+      - name: 🚀 Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
-          publish-dir: './output'
+          publish-dir: "dist"
           production-branch: dev
           github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
