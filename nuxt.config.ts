@@ -82,9 +82,5 @@ export default defineNuxtConfig({
     },
   },
 
-  nitro: {
-    preset: 'netlify',
-  },
-
   css: ['@/assets/styles/_config.css', '@/assets/styles/_media.css'],
 })
