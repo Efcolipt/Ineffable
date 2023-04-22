@@ -14,14 +14,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [16.x]
+
     steps:
       - uses: actions/checkout@v3
         name: 🛒 "Checkout Source code"
         
-      - name: ✨ Setup Node.js environment
-        uses: actions/setup-node@v3.1.1
+      - name: ✨ Setup Node.js environment ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
-          version: 16.x
+          version: ${{ matrix.node-version }}
           cache: 'yarn'
 
       - name: 🛠️ Build
