@@ -28,11 +28,14 @@ jobs:
           version: ${{ matrix.node-version }}
           cache: 'yarn'
 
-      - name: 🛠️ Build
+      - name: 🛠️ Install Depependencies
         run: yarn install --frozen-lockfile
         env:
           CI: true
           HUSKY: 0
+
+      - name: 🛠️ Build
+        run: yarn build
 
       - name: Execute Tests
         run: yarn test
