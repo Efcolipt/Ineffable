@@ -9,6 +9,7 @@ sw.*
 dist
 temp/
 yarn.lock
+.netlify/
 
 # IDE
 .idea
