@@ -29,9 +29,7 @@ jobs:
           cache: 'yarn'
 
       - name: 🛠️ Build
-        run: |
-          yarn install --frozen-lockfile
-          npx cross-env NITRO_PRESET=netlify yarn build
+        run: yarn install --frozen-lockfile
         env:
           CI: true
           HUSKY: 0
