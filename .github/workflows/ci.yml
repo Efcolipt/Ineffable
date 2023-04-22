@@ -45,7 +45,7 @@ jobs:
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
-          publish-dir: './dist'
+          publish-dir: './output'
           production-branch: dev
           github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
