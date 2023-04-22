@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.7.0](https://github.com/Efcolipt/ineffable/compare/1.6.1...1.7.0) (2023-04-22)
+
+
+### Features
+
+* add supbase module database ([830f9cd](https://github.com/Efcolipt/ineffable/commit/830f9cdd0a673b4e4ddf1a7892fa5862feed5d64))
+
 ## [1.6.1](https://github.com/Efcolipt/ineffable/compare/1.6.0...1.6.1) (2023-04-21)
 
 # [1.6.0](https://github.com/Efcolipt/ineffable/compare/1.5.0...1.6.0) (2023-04-21)
