@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     '@kevinmarrec/nuxt-pwa',
     'nuxt-purgecss',
     '@nuxtjs/supabase',
+    'nuxt-swiper',
   ],
 
   // Modules config

@@ -74,5 +74,8 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "dependencies": {
+    "nuxt-swiper": "^1.1.0"
   }
 }

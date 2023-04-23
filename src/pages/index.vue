@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Splide, SplideSlide } from '@splidejs/vue-splide'
-
 const { data } = useAsyncData(
   'entity',
   async () => await $fetch('/api/collection/top')
@@ -9,77 +7,53 @@ const { data } = useAsyncData(
 
 <template>
   <div>
-    <ClientOnly>
-      <Splide
-        class="splide"
-        :options="{
-          autoplay: true,
-          perPage: 1,
-          perMove: 1,
-          lazyLoad: 'nearby',
-          rewind: false,
-          drag: 'free',
-          arrows: true,
-          pagination: false,
-          cover: true,
-        }"
+    <Swiper
+      :height="300"
+      :modules="[SwiperAutoplay, SwiperEffectCreative]"
+      :slides-per-view="1"
+      :loop="true"
+      :effect="'creative'"
+      :autoplay="{
+        delay: 8000,
+        disableOnInteraction: true,
+      }"
+      :creative-effect="{
+        prev: {
+          shadow: false,
+          translate: ['-20%', 0, -1],
+        },
+        next: {
+          translate: ['100%', 0, 0],
+        },
+      }"
+    >
+      <SwiperSlide
+        v-for="item in data?.films"
+        :key="item.filmId"
+        class="cursor-pointer"
       >
-        <SplideSlide
-          v-for="item in data?.films"
-          :key="item.filmId"
-          class="cursor-pointer"
-        >
-          <img class="rounded-xl" :src="item.posterUrl" />
-          <p class="base-text">{{ item.nameRu }}</p>
-        </SplideSlide>
-      </Splide>
+        <!-- <img class="rounded-xl" :src="item.posterUrl" /> -->
+        {{ item.nameRu }}
+      </SwiperSlide>
 
-      <!-- Add the progress bar element -->
-      <div class="my-slider-progress mt-10">
-        <div class="my-slider-progress-bar"></div>
-      </div>
-    </ClientOnly>
+      <AppSwiperControls />
+    </Swiper>
   </div>
 </template>
 
-<style scoped lang="scss">
-.splide {
-  :deep(.splide__list) {
-    display: flex;
-  }
-
-  .splide__arrow {
-    @apply inset-0 h-full transform-none rounded-none w-12 opacity-90;
-
-    &--prev {
-      @apply left-[-1.5rem];
-      background: linear-gradient(
-        90deg,
-        rgb(255, 255, 255) 50%,
-        rgba(255, 255, 255, 0) 100%
-      );
-    }
-
-    &--next {
-      @apply right-[-1.5rem];
-      background: linear-gradient(
-        270deg,
-        rgb(255, 255, 255) 50%,
-        rgba(255, 255, 255, 0) 100%
-      );
-    }
-  }
+<style scoped>
+:deep(.swiper-slide) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  height: 20vh;
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
 }
-/* ScrollBar*/
-
-.my-slider-progress {
-  background: #ccc;
-}
-
-.my-slider-progress-bar {
-  background: greenyellow;
-  height: 2px;
-  transition: width 400ms ease;
-  width: 0;
+:deep(.swiper-wrapper) {
+  min-width: 100vh;
+  width: 100vh;
 }
 </style>
