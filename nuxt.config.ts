@@ -82,9 +82,5 @@ export default defineNuxtConfig({
     },
   },
 
-  css: [
-    '@/assets/styles/_config.css',
-    '@/assets/styles/_media.css',
-    '@splidejs/vue-splide/css/core',
-  ],
+  css: ['@/assets/styles/_config.css', '@/assets/styles/_media.css'],
 })
