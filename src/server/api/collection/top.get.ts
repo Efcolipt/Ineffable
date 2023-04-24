@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
     IResponseWrapperCollection<ICollectionByTop[]>
   >('/top', {
     query: {
-      type: query.type ?? ListTopType.TOP_250_BEST_FILMS,
+      type: query.type ?? ListTopType.TOP_AWAIT_FILMS,
       page: query.page ?? 1,
     },
   })

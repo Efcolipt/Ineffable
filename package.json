@@ -40,7 +40,6 @@
     "prettier": "^2.8.7",
     "release-it": "^15.10.0",
     "sass": "^1.62.0",
-    "typescript": "^5.0.4",
     "vitest": "latest"
   },
   "lint-staged": {
@@ -75,5 +74,8 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "dependencies": {
+    "nuxt-swiper": "^1.1.0"
   }
 }
