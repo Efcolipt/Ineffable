@@ -24,7 +24,7 @@ export default defineNuxtConfig({
 
   pwa: {
     workbox: {
-      enabled: false,
+      enabled: process.env.NODE_ENV === 'production',
     },
 
     meta: {
