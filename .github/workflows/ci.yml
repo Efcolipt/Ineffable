@@ -34,8 +34,9 @@ jobs:
           CI: true
           HUSKY: 0
           
+      - name: 🛠️ Run Tests
+        run: yarn test
+    
       - name: 🛠️ Build
         run: yarn build
 
-      - name: 🛠️ Run Tests
-        run: yarn test
