@@ -1,19 +1,11 @@
-import {
-  ListTopType,
-  ICollectionByTop,
-  IResponseWrapperCollection,
-} from '@/server/types'
+import { ListTopType } from '~/server/types'
 
 export default defineEventHandler(async (event) => {
-  const { fetchInfoCollectionApi } = useApi()
+  const { ApiCollectionService } = useApi()
   const query = getQuery(event)
 
-  return await fetchInfoCollectionApi<
-    IResponseWrapperCollection<ICollectionByTop[]>
-  >('/top', {
-    query: {
-      type: query.type ?? ListTopType.TOP_AWAIT_FILMS,
-      page: query.page ?? 1,
-    },
+  return await ApiCollectionService.getTop({
+    page: query.page ?? 1,
+    type: query.type ?? ListTopType.TOP_AWAIT_FILMS,
   })
 })

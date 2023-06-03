@@ -1,10 +1,5 @@
-import { IGenre, ICountry } from '@/server/types'
-
 export default defineEventHandler(async () => {
-  const { fetchInfoCollectionApi } = useApi()
+  const { ApiCollectionService } = useApi()
 
-  return await fetchInfoCollectionApi<{
-    genres: IGenre[]
-    countries: ICountry[]
-  }>('/filters')
+  return await ApiCollectionService.getFilters()
 })

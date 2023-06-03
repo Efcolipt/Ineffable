@@ -1,7 +1,5 @@
-import { ICollectionByID, IResponseWrapperCollection } from '@/server/types'
-
 export default defineEventHandler(async (event) => {
-  const { fetchInfoCollectionApi } = useApi()
+  const { ApiCollectionService } = useApi()
   const id = event.context.params?.id
 
   if (!id) {
@@ -11,7 +9,5 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  return await fetchInfoCollectionApi<
-    IResponseWrapperCollection<ICollectionByID>
-  >(`/${id}`)
+  return await ApiCollectionService.findOneById(+id)
 })

@@ -1,10 +1,5 @@
-import {
-  IResponseWrapperCollectionVideo,
-  ICollectionPlayer,
-} from '@/server/types'
-
 export default defineEventHandler(async (event) => {
-  const { fetchVideoCollectionApi } = useApi()
+  const { ApiVideoService } = useApi()
 
   const id = event.context.params?.id
 
@@ -15,11 +10,5 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  return await fetchVideoCollectionApi<
-    IResponseWrapperCollectionVideo<ICollectionPlayer[]>
-  >('/search', {
-    query: {
-      kp: id,
-    },
-  })
+  return await ApiVideoService.findPlayerByKinopoiskId(+id)
 })
