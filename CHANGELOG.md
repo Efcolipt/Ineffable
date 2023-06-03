@@ -1,5 +1,18 @@
 # Changelog
 
+# [1.8.0](https://github.com/Efcolipt/ineffable/compare/1.7.0...1.8.0) (2023-06-03)
+
+
+### Bug Fixes
+
+* add sass module ([d11f600](https://github.com/Efcolipt/ineffable/commit/d11f6005ecd12cd14151b83fc598a0b10c8a6287))
+
+
+### Features
+
+* add swiper ([3b11d33](https://github.com/Efcolipt/ineffable/commit/3b11d33f0ce904c15b2d3ed6bc6df4609c689da8))
+* update fetch api ([27d934c](https://github.com/Efcolipt/ineffable/commit/27d934cbb86b502ed54d83be8511e12d3c11ad2f))
+
 # [1.7.0](https://github.com/Efcolipt/ineffable/compare/1.6.1...1.7.0) (2023-04-22)
 
 
