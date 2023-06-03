@@ -1,5 +1,7 @@
 # Changelog
 
+## [1.8.1](https://github.com/Efcolipt/ineffable/compare/1.8.0...1.8.1) (2023-06-03)
+
 # [1.8.0](https://github.com/Efcolipt/ineffable/compare/1.7.0...1.8.0) (2023-06-03)
 
 
