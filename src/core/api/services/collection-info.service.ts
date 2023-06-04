@@ -1,22 +1,59 @@
+import deepmerge from 'deepmerge'
 import type {
-  ListCollectionInfoTopType,
   ICollectionInfoGenre,
   ICollectionInfoCountry,
   ICollectionInfoByID,
   ICollectionInfoByTop,
-  ICollectionInfoSimilarByID,
+  ICollectionInfoSimilar,
   ICollectionInfoBySearch,
   IResponseWrapperCollectionInfo,
+  ICollectionInfoBase,
+  ICollectionInfoHealthy,
 } from '@/core/api/types/collection-info'
-
-import { BaseApi } from '@/core/api/common/base-api'
+import { FetchOptions, BaseApi } from '@/core/api/common/base-api'
 
 export class ApiCollectionInfo extends BaseApi {
-  async getTop(dto: { page: number; type: ListCollectionInfoTopType }) {
+  async overGet<T>(path: string, passOptions: FetchOptions) {
+    const baseOptions: FetchOptions = {
+      query: {
+        selectFields: [
+          'externalId',
+          'slogan',
+          'name',
+          'shortDescription',
+          'movieLength',
+          'rating.kp',
+          'rating.imdb',
+          'rating.await',
+          'year',
+          'type',
+          'genres',
+          'countries',
+          'ageRating',
+        ],
+      },
+    }
+
+    const options = deepmerge(baseOptions, passOptions)
+
     return await this.get<
-      IResponseWrapperCollectionInfo<ICollectionInfoByTop[]>
-    >('top', {
-      query: dto,
+      IResponseWrapperCollectionInfo<ICollectionInfoBase<T>>[]
+    >(path, options)
+  }
+
+  async getHealthy() {
+    return await this.get<ICollectionInfoHealthy>('/v1/health')
+  }
+
+  async getAwaitable() {
+    return await this.overGet<ICollectionInfoByTop>('/v1.3/movie', {
+      query: {
+        selectFields: ['backdrop'],
+        sortField: ['year', 'votes.await'],
+        year: new Date().getFullYear(),
+        limit: 12,
+        page: 1,
+      },
     })
   }
 
@@ -35,7 +72,7 @@ export class ApiCollectionInfo extends BaseApi {
 
   async findSimilarsById(id: number) {
     return await this.get<
-      IResponseWrapperCollectionInfo<ICollectionInfoSimilarByID>
+      IResponseWrapperCollectionInfo<ICollectionInfoSimilar>
     >(`/${id}/similars`)
   }
 

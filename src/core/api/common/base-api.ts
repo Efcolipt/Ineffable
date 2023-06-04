@@ -1,5 +1,5 @@
 import type { NitroFetchOptions } from 'nitropack'
-import { Utils } from '@/core/api/utils'
+import deepmerge from 'deepmerge'
 
 export type FetchOptions = NitroFetchOptions<any>
 
@@ -7,7 +7,7 @@ export abstract class BaseApi {
   #baseOptions: FetchOptions = {}
 
   constructor(baseOptions: FetchOptions) {
-    this.#baseOptions = Utils.mergeDeep(
+    this.#baseOptions = deepmerge(
       {
         headers: {
           'Content-Type': 'application/json',
@@ -21,10 +21,9 @@ export abstract class BaseApi {
     path: string,
     passOptions: FetchOptions = {}
   ): Promise<T> {
-    const options = Utils.mergeDeep<FetchOptions>(
-      this.#baseOptions,
-      passOptions
-    )
+    const options = deepmerge(this.#baseOptions, passOptions)
+
+    console.log(options)
 
     return await $fetch<T>(path, options)
   }
