@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.8.3](https://github.com/Efcolipt/ineffable/compare/1.8.2...1.8.3) (2023-06-04)
+
+
+### Bug Fixes
+
+* initialize api ([c49929a](https://github.com/Efcolipt/ineffable/commit/c49929aec7a62c51b8a1e53c6929417a3b1b1a02))
+* token get ([1a8330c](https://github.com/Efcolipt/ineffable/commit/1a8330c755e1c44c34d69408762af8c20a5f2650))
+
 ## [1.8.2](https://github.com/Efcolipt/ineffable/compare/1.8.1...1.8.2) (2023-06-04)
 
 
