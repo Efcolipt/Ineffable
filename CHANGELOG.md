@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.2](https://github.com/Efcolipt/ineffable/compare/1.8.1...1.8.2) (2023-06-04)
+
+
+### Bug Fixes
+
+* build ([6f90c9c](https://github.com/Efcolipt/ineffable/commit/6f90c9c15d47e8a2a727173b8a4014a99461e904))
+
 ## [1.8.1](https://github.com/Efcolipt/ineffable/compare/1.8.0...1.8.1) (2023-06-03)
 
 # [1.8.0](https://github.com/Efcolipt/ineffable/compare/1.7.0...1.8.0) (2023-06-03)
