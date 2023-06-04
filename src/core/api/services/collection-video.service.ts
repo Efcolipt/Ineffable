@@ -1,4 +1,4 @@
-import { BaseApi } from '@/core/api/base/base-api'
+import { BaseApi } from '@/core/api/common/base-api'
 import {
   ICollectionVideoPlayer,
   IResponseWrapperCollectionVideo,

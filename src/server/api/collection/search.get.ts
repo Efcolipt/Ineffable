@@ -3,7 +3,7 @@ export default defineEventHandler(async (event) => {
   const query = getQuery(event)
 
   return await apiCollectionInfo.findByKeyboard({
-    keyword: query.keyword ?? '',
-    page: query.page ?? 1,
+    keyword: String(query.keyword ?? ''),
+    page: Number(query.page ?? 1),
   })
 })

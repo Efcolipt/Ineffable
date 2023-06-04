@@ -9,7 +9,7 @@ import type {
   IResponseWrapperCollectionInfo,
 } from '@/core/api/types/collection-info'
 
-import { BaseApi } from '@/core/api/base/base-api'
+import { BaseApi } from '@/core/api/common/base-api'
 
 export class ApiCollectionInfo extends BaseApi {
   async getTop(dto: { page: number; type: ListCollectionInfoTopType }) {
