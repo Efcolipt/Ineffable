@@ -6,10 +6,10 @@ export default () => {
   const configVideo = config.VIDEO_BD
 
   const apiCollectionInfo = new ApiCollectionInfo({
-    baseURL: configInfo.API_BASE_URL,
-    headers: {
+    query: {
       [configInfo.API_PROP]: configInfo.API_KEY,
     },
+    baseURL: configInfo.API_BASE_URL,
   })
 
   const apiCollectionVideo = new ApiCollectionVideo({
