@@ -1,8 +1,8 @@
 export default defineEventHandler(async (event) => {
-  const { ApiCollectionService } = useApi()
+  const { apiCollectionInfo } = useApiCollection()
   const query = getQuery(event)
 
-  return await ApiCollectionService.findByKeyboard({
+  return await apiCollectionInfo.findByKeyboard({
     keyword: query.keyword ?? '',
     page: query.page ?? 1,
   })

@@ -1,5 +1,5 @@
 export default defineEventHandler(async (event) => {
-  const { ApiCollectionService } = useApi()
+  const { apiCollectionInfo } = useApiCollection()
   const id = event.context.params?.id
 
   if (!id) {
@@ -9,5 +9,5 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  return await ApiCollectionService.findOneById(+id)
+  return await apiCollectionInfo.findOneById(+id)
 })

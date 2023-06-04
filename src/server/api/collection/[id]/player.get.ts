@@ -1,5 +1,5 @@
 export default defineEventHandler(async (event) => {
-  const { ApiVideoService } = useApi()
+  const { apiCollectionVideo } = useApiCollection()
 
   const id = event.context.params?.id
 
@@ -10,5 +10,5 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  return await ApiVideoService.findPlayerByKinopoiskId(+id)
+  return await apiCollectionVideo.findPlayerByKinopoiskId(+id)
 })

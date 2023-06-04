@@ -1,5 +1,5 @@
 export default defineEventHandler(async () => {
-  const { ApiCollectionService } = useApi()
+  const { apiCollectionInfo } = useApiCollection()
 
-  return await ApiCollectionService.getFilters()
+  return await apiCollectionInfo.getFilters()
 })

@@ -1,11 +1,10 @@
-import { ListTopType } from '~/server/types'
-
+import { ListCollectionInfoTopType } from '@/core/api/types/collection-info.d'
 export default defineEventHandler(async (event) => {
-  const { ApiCollectionService } = useApi()
+  const { apiCollectionInfo } = useApiCollection()
   const query = getQuery(event)
 
-  return await ApiCollectionService.getTop({
+  return await apiCollectionInfo.getTop({
     page: query.page ?? 1,
-    type: query.type ?? ListTopType.TOP_AWAIT_FILMS,
+    type: query.type ?? ListCollectionInfoTopType.TOP_AWAIT_FILMS,
   })
 })
