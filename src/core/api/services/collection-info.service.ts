@@ -37,7 +37,7 @@ export class ApiCollectionInfo extends BaseApi {
     const options = deepmerge(baseOptions, passOptions)
 
     return await this.get<
-      IResponseWrapperCollectionInfo<ICollectionInfoBase<T>>[]
+      IResponseWrapperCollectionInfo<ICollectionInfoBase<T>>
     >(path, options)
   }
 
@@ -48,7 +48,7 @@ export class ApiCollectionInfo extends BaseApi {
   async getAwaitable() {
     return await this.overGet<ICollectionInfoByTop>('/v1.3/movie', {
       query: {
-        selectFields: ['backdrop'],
+        selectFields: ['backdrop.url'],
         sortField: ['year', 'votes.await'],
         year: new Date().getFullYear(),
         limit: 12,

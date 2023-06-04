@@ -1,9 +1,10 @@
 <script setup lang="ts">
 const { auth } = useSupabaseAuthClient()
-const { data } = useAsyncData(
-  'entity',
-  async () => await $fetch('/api/collection/top')
+const { data } = await useLazyAsyncData('collectionAwaitable', () =>
+  $fetch('/api/collection/awaitable')
 )
+
+console.log(data.value?.docs)
 </script>
 
 <template>
@@ -20,9 +21,9 @@ const { data } = useAsyncData(
         disableOnInteraction: true,
       }"
     >
-      <SwiperSlide v-for="item in data?.films" :key="item.filmId">
-        <img class="rounded-xl" :src="item.posterUrl" />
-        {{ item.nameRu }}
+      <SwiperSlide v-for="item in data?.docs" :key="item.name">
+        <img class="rounded-xl" :src="item.backdrop.url" />
+        {{ item.name }}
       </SwiperSlide>
 
       <AppSwiperControls />
@@ -30,12 +31,13 @@ const { data } = useAsyncData(
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 :deep(.swiper-wrapper) {
   display: flex;
 }
 
 :deep(.swiper-slide) {
   flex: 0 0 100%;
+  min-height: 600px;
 }
 </style>

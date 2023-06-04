@@ -24,9 +24,9 @@ export interface ICollectionInfoRating {
 }
 
 export interface ICollectionInfoExternalID {
-  kpHD: string 
-  imdb: string 
-  tmdb: string 
+  kpHD: string | null
+  imdb: string | null
+  tmdb: string | null
 }
 
 export interface ICollectionInfoGenre {
@@ -56,10 +56,10 @@ export type ICollectionInfoBase<T = any> = {
   genres: ICollectionInfoGenre[]
   slogan: string | null
   name: string
-  shortDescription: string
-  movieLength: number
+  shortDescription: string | null
+  movieLength: number | null
   year: number
-  ageRating: number
+  ageRating: number | null
 } & T
 
 export interface ICollectionInfoByID  {}
