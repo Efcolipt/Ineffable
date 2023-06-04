@@ -23,8 +23,6 @@ export abstract class BaseApi {
   ): Promise<T> {
     const options = deepmerge(this.#baseOptions, passOptions)
 
-    console.log(options)
-
     return await $fetch<T>(path, options)
   }
 

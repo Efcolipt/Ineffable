@@ -1,5 +1,6 @@
 import { ApiCollectionVideo } from '@/core/api/services/collection-video.service'
 import { ApiCollectionInfo } from '@/core/api/services/collection-info.service'
+
 export default () => {
   const config = useRuntimeConfig()
   const configInfo = config.INFO_BD
