@@ -1,22 +1,35 @@
 <script setup lang="ts">
+import type { RouteLocationRaw } from '#vue-router'
+
 interface Props {
   size?: 'sm' | 'md'
   theme?: 'gradient' | 'secondary'
+  to?: RouteLocationRaw
 }
 
 withDefaults(defineProps<Props>(), {
   size: 'md',
   theme: 'gradient',
+  to: undefined
 })
 </script>
 
 <template>
   <button
+    v-if="!to"
     class="btn-default"
     :class="[`btn-default--size-${size}`, `btn-default--theme-${theme}`]"
   >
     <slot />
   </button>
+  <NuxtLink
+    v-else
+    :to="to"
+    class="btn-default"
+    :class="[`btn-default--size-${size}`, `btn-default--theme-${theme}`]"
+  >
+    <slot />
+  </NuxtLink>
 </template>
 
 <style scoped lang="scss">
@@ -37,7 +50,7 @@ withDefaults(defineProps<Props>(), {
 
   &--theme {
     &-gradient {
-      @apply bg-primary;
+      @apply bg-primary text-white;
     }
 
     &-white {

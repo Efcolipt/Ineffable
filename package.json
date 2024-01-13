@@ -8,45 +8,47 @@
     "email": "efcolipt@gmail.com"
   },
   "engines": {
-    "node": ">=16.10.0"
+    "node": ">=20.9.0"
   },
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --host 127.0.0.1",
+    "typecheck": "nuxt typecheck",
     "postinstall": "nuxt prepare",
     "release": "dotenv release-it --",
     "prepare": "husky install",
+    "lint:fix": "eslint --fix --ext \".jsx,.vue,.js,.ts,.js\" ./src --ignore-path .eslintignore .",
+    "lint:check": "eslint .",
     "test": "nuxi test"
+  },
+  "dependencies": {
+    "@nuxtjs/robots": "^3.0.0",
+    "@openmoviedb/kinopoiskdev_client": "^1.3.10",
+    "@vueuse/nuxt": "^10.7.1",
+    "nuxt-icons": "^3.2.1",
+    "nuxt-swiper": "^1.2.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",
     "@commitlint/config-conventional": "^17.4.4",
     "@kevinmarrec/nuxt-pwa": "^0.17.0",
+    "@nuxt/devtools": "^1.0.8",
     "@nuxt/test-utils": "^3.4.2",
-    "@nuxtjs/eslint-config-typescript": "^12.0.0",
-    "@nuxtjs/supabase": "^0.3.5",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/tailwindcss": "^6.6.6",
     "@release-it/conventional-changelog": "^5.1.1",
-    "@types/node": "^18.15.11",
-    "@typescript-eslint/parser": "^5.58.0",
-    "deepmerge": "^4.3.1",
-    "dotenv-cli": "^7.2.1",
-    "eslint": "^8.38.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.0",
-    "nuxt": "^3.4.1",
-    "nuxt-purgecss": "^2.0.0",
-    "prettier": "^2.8.7",
+    "nuxt": "^3.9.1",
+    "nuxt-simple-sitemap": "^4.4.1",
     "release-it": "^15.10.0",
     "sass": "^1.62.0",
     "typescript": "^5.1.3",
     "vitest": "latest"
   },
   "lint-staged": {
-    "**/*.{js,ts,vue}": [
-      "eslint --fix --ext \".ts,.js,.vue\" --ignore-path .eslintignore ."
+    "./src/**/*.{jsx,vue,js,ts,js}": [
+      "eslint --fix --ext \".jsx,.vue,.js,.ts,.js\" ./src --ignore-path .eslintignore ."
     ]
   },
   "release-it": {
@@ -76,8 +78,5 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
-  },
-  "dependencies": {
-    "nuxt-swiper": "^1.1.0"
   }
 }

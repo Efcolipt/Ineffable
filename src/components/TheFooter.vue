@@ -28,7 +28,7 @@ const config = useRuntimeConfig().public
               ISC License
             </span>
           </div>
-          <div class="flex flex-align-center gap-4">
+          <div class="flex items-center gap-4">
             <div>
               <span class="base-text">
                 Релиз версии v{{ config.VERSION }}
@@ -36,7 +36,7 @@ const config = useRuntimeConfig().public
               </span>
             </div>
             <div>
-              <UIIconBase name="github" />
+              <UIIcon name="github" />
             </div>
           </div>
         </div>

@@ -1,10 +1,14 @@
 <script setup lang="ts"></script>
 
 <template>
-  <NuxtLayout>
-    <NuxtLoadingIndicator :height="5" :duration="3000" :throttle="400" />
-    <NuxtPage />
-  </NuxtLayout>
+  <Html lang="en-US">
+    <Body>
+      <NuxtLayout>
+        <NuxtLoadingIndicator :height="5" :duration="3000" :throttle="400" />
+        <NuxtPage />
+      </NuxtLayout>
+    </Body>
+  </Html>
 </template>
 
 <style lang="scss">

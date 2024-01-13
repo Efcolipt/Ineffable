@@ -1,6 +1,6 @@
 <script setup lang="ts">
 withDefaults(defineProps<{ theme?: 'white' | 'gradient' }>(), {
-  theme: 'gradient',
+  theme: 'gradient'
 })
 </script>
 

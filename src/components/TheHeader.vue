@@ -1,6 +1,6 @@
 <template>
   <header
-    class="absolute w-full inset-0 h-40 z-50 pt-7 bg-gradient-to-b gradient-gray"
+    class="absolute w-full inset-0 h-40 z-50 pt-7 bg-gradient-to-b from-dark to-dark-0"
   >
     <div class="container">
       <div class="flex justify-between items-center">
@@ -12,26 +12,34 @@
         <nav class="header__menu">
           <ul class="flex items-center gap-11">
             <li class="header__item">
-              <NuxtLink to="/" class="base-text"> Лента </NuxtLink>
+              <NuxtLink to="/" class="base-text">
+                Лента
+              </NuxtLink>
             </li>
             <li class="header__item">
-              <NuxtLink to="/" class="base-text"> Фильмы </NuxtLink>
+              <NuxtLink to="/" class="base-text">
+                Фильмы
+              </NuxtLink>
             </li>
             <li class="header__item">
-              <NuxtLink to="/" class="base-text"> Сериалы </NuxtLink>
+              <NuxtLink to="/" class="base-text">
+                Сериалы
+              </NuxtLink>
             </li>
             <li class="header__item">
-              <NuxtLink to="/" class="base-text"> Мультфильмы </NuxtLink>
+              <NuxtLink to="/" class="base-text">
+                Мультфильмы
+              </NuxtLink>
             </li>
           </ul>
         </nav>
         <div class="flex items-center gap-10">
           <div>
-            <UIIconBase name="search" />
+            <UIIcon name="search" />
           </div>
           <div>
             <UIButton theme="secondary" size="sm">
-              <UIIconBase name="account-circle" />
+              <UIIcon name="account-circle" />
               <span class="text-sm base-text"> Вход / Регистрация </span>
             </UIButton>
           </div>

@@ -12,11 +12,12 @@ export default <Partial<Config>>{
       yellow: '#FFD600',
       pink: '#D479FF',
       'dark-light': ' #303030',
-      'primary-linear': 'linear-gradient(90deg, #5E36FF 20.69%, #C74FFF 100%)',
+
+      'primary-linear': 'linear-gradient(90deg, #5E36FF 20.69%, #C74FFF 100%)'
     },
     fontFamily: {
       headline: ['Rubik', 'sans-serif'],
-      text: ['Roboto', 'serif'],
-    },
-  },
+      text: ['Roboto', 'serif']
+    }
+  }
 }

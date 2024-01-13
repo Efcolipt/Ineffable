@@ -1,16 +1,24 @@
-node_modules
-*.log*
-sw.*
+# Nuxt dev/build outputs
+.output
+.data
 .nuxt
 .nitro
 .cache
-.output
-.env
 dist
-temp/
-yarn.lock
-.netlify/
 
-# IDE
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
 .idea
-.vercel
+
+# Local env files
+.env
+.env.*
+!.env.example

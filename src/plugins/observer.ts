@@ -1,6 +1,6 @@
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.directive('observer', {
-    mounted(el, binding) {
+    mounted (el, binding) {
       const observer = new IntersectionObserver(
         (entries, observer) => {
           const item = entries[0]
@@ -13,13 +13,13 @@ export default defineNuxtPlugin((nuxtApp) => {
         {
           root: null,
           rootMargin: '0px',
-          threshold: 0,
+          threshold: 0
         }
       )
 
       window.addEventListener('DOMContentLoaded', () => {
         observer.observe(el)
       })
-    },
+    }
   })
 })
