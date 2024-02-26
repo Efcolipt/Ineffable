@@ -1,6 +1,6 @@
 <template>
   <div class="placeholder">
-&nbsp;
+    &nbsp;
   </div>
 </template>
 

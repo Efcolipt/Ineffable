@@ -2,21 +2,19 @@
   "name": "ineffable",
   "version": "1.8.3",
   "private": true,
-  "license": "ISC",
-  "author": {
-    "name": "Efcolipt",
-    "email": "efcolipt@gmail.com"
-  },
+  "type": "module",
   "engines": {
     "node": ">=20.9.0"
   },
   "scripts": {
+    "prepare": "husky install",
     "build": "nuxt build",
-    "dev": "nuxt dev --host 127.0.0.1",
     "typecheck": "nuxt typecheck",
+    "clean": "nuxt cleanup",
+    "start:dev": "nuxt dev",
+    "start:prod": "node .output/server/index.mjs",
     "postinstall": "nuxt prepare",
     "release": "dotenv release-it --",
-    "prepare": "husky install",
     "lint:fix": "eslint --fix --ext \".jsx,.vue,.js,.ts,.js\" ./src --ignore-path .eslintignore .",
     "lint:check": "eslint .",
     "test": "nuxi test"
@@ -31,18 +29,21 @@
   "devDependencies": {
     "@commitlint/cli": "^17.5.1",
     "@commitlint/config-conventional": "^17.4.4",
-    "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@nuxt/devtools": "^1.0.8",
     "@nuxt/test-utils": "^3.4.2",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@nuxtjs/google-fonts": "^3.1.3",
+    "@nuxtjs/stylelint-module": "^5.2.0",
     "@nuxtjs/tailwindcss": "^6.6.6",
     "@release-it/conventional-changelog": "^5.1.1",
+    "@vite-pwa/nuxt": "^0.5.0",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.0",
-    "nuxt": "^3.9.1",
+    "nuxt": "^3.10.3",
     "nuxt-simple-sitemap": "^4.4.1",
     "release-it": "^15.10.0",
     "sass": "^1.62.0",
+    "stylelint": "^16.2.1",
     "typescript": "^5.1.3",
     "vitest": "latest"
   },

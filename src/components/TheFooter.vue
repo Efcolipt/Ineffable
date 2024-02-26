@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const config = useRuntimeConfig().public
+const config = useRuntimeConfig()
 </script>
 
 <template>
@@ -17,22 +17,22 @@ const config = useRuntimeConfig().public
           <div>
             <span class="base-text">
               <a href="javascipt:void(0)" class="underline">Скачать</a>
-              приложение "{{ config.APP_NAME }}" на ваш компьютер
+              приложение "{{ config.public.APP_NAME }}" на ваш компьютер
             </span>
           </div>
         </div>
         <div class="flex justify-between items-center opacity-50 mt-4">
           <div>
             <span class="base-text">
-              © 2018 - {{ new Date().getUTCFullYear() }} {{ config.APP_NAME }} —
+              © 2018 - {{ new Date().getUTCFullYear() }} {{ config.public.APP_NAME }} —
               ISC License
             </span>
           </div>
           <div class="flex items-center gap-4">
             <div>
               <span class="base-text">
-                Релиз версии v{{ config.VERSION }}
-                {{ config.TARGET }}
+                Релиз версии v{{ config.public.VERSION }}
+                {{ config.public.TARGET }}
               </span>
             </div>
             <div>

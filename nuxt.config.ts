@@ -1,13 +1,18 @@
-import { version, author } from './package.json'
+import process from 'node:process'
+import { version } from './package.json'
 
-const publicAppConfig = {
+const appConfig = {
   APP_NAME: 'Ineffable',
   TARGET: process.env.NODE_ENV,
-  VERSION: version
+  DOMAIN: process.env.DOMAIN,
+  PORT: Number(process.env.PORT ?? 3000),
+  VERSION: version,
+  SW: process.env.SW ?? false
 }
 
 export default defineNuxtConfig({
   modules: [
+    '@nuxtjs/stylelint-module',
     [
       '@nuxtjs/tailwindcss',
       {
@@ -16,30 +21,37 @@ export default defineNuxtConfig({
       }
     ],
     [
-      '@kevinmarrec/nuxt-pwa',
+      '@vite-pwa/nuxt',
       {
-        workbox: {
-          enabled: process.env.NODE_ENV === 'production'
-        },
-
-        meta: {
+        strategies: appConfig.SW ? 'injectManifest' : 'generateSW',
+        srcDir: appConfig.SW ? 'service-worker' : undefined,
+        filename: appConfig.SW ? 'sw.ts' : undefined,
+        registerType: 'autoUpdate',
+        manifest: {
+          name: `${appConfig.APP_NAME} Online Cinema`,
+          short_name: appConfig.APP_NAME,
           lang: 'ru-RU',
           theme_color: '#222222',
-          author: author.name,
-          description: `${publicAppConfig.APP_NAME} Online Cinema`,
-          favicon: false,
-          mobileApp: true,
-          mobileAppIOS: true,
-          appleStatusBarStyle: 'black'
-        },
-
-        manifest: {
+          description: `${appConfig.APP_NAME} Online Cinema`,
+          favicon: true,
           id: '/?standalone=true',
-          name: `${publicAppConfig.APP_NAME} Online Cinema`,
-          short_name: publicAppConfig.APP_NAME,
-          background_color: '#222222',
-          theme_color: '#222222',
-          lang: 'ru-RU'
+          background_color: '#222222'
+        },
+        workbox: {
+          globPatterns: ['**/*.{js,css,html,png,svg,ico}']
+        },
+        injectManifest: {
+          globPatterns: ['**/*.{js,css,html,png,svg,ico}']
+        },
+        client: {
+          installPrompt: true
+        },
+        devOptions: {
+          enabled: true,
+          suppressWarnings: true,
+          navigateFallback: '/',
+          navigateFallbackAllowlist: [/^\/$/],
+          type: 'module'
         }
       }
     ],
@@ -47,11 +59,24 @@ export default defineNuxtConfig({
     'nuxt-simple-sitemap',
     '@nuxtjs/robots',
     '@vueuse/nuxt',
-    'nuxt-icons'
+    'nuxt-icons',
+    [
+      '@nuxtjs/google-fonts', {
+        families: {
+          Roboto: '100..900',
+          Rubik: [600, 700]
+        }
+      }
+    ]
   ],
 
+  devServer: {
+    port: appConfig.PORT,
+    host: '127.0.0.1'
+  },
+
   site: {
-    url: 'https://ineffable-cinema.netlify.app/'
+    url: appConfig.DOMAIN
   },
 
   devtools: { enabled: true },
@@ -61,31 +86,39 @@ export default defineNuxtConfig({
 
   app: {
     pageTransition: { name: 'page', mode: 'out-in' },
+
     head: {
-      titleTemplate: `%s | ${publicAppConfig.APP_NAME}`,
       meta: [
-        // ...(head.value.meta ?? []),
-        { 'http-equiv': 'x-ua-compatible', content: 'IE=edge,chrome=1' },
-        { name: 'HandheldFriendly', content: 'true' }
+        { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge,chrome=1' },
+        {
+          name: 'viewport',
+          content: 'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'
+        },
+        { name: 'HandheldFriendly', content: 'True' }
       ],
       link: [
-        // ...(head.value.link ?? []),
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
-        {
-          rel: 'preconnect',
-          href: 'https://fonts.gstatic.com',
-          crossorigin: 'anonymous'
-        },
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Rubik:wght@600;700&display=swap'
-        }
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ]
     }
   },
 
+  future: {
+    typescriptBundlerResolution: true
+  },
+
+  experimental: {
+    scanPageMeta: true,
+    cookieStore: true,
+    payloadExtraction: true,
+    watcher: 'parcel'
+  },
+
   nitro: {
+    esbuild: {
+      options: {
+        target: 'esnext'
+      }
+    },
     compressPublicAssets: true,
     prerender: {
       crawlLinks: true
@@ -93,7 +126,7 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    public: publicAppConfig,
+    public: appConfig,
     INFO_BD: {
       API_KEY: process.env.API_KEY_INFO
     },

@@ -1,16 +1,13 @@
 <script setup lang="ts">
 definePageMeta({
   validate (route) {
-    // Check if the id is made up of digits
-    return /^\d+$/.test(route.params.id)
+    return /^\d+$/.test(route.params?.id?.toString?.() ?? null)
   }
 })
 
 const { params: { id } } = useRoute()
 
-const { data: collection } = await useAsyncData(`collection-${id}`, () =>
-  $fetch(`/api/watch/${id}`)
-)
+const { data: collection } = await useFetch(`/api/watch/${id}`)
 
 console.log(collection.value)
 </script>

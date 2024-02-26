@@ -1,7 +1,5 @@
 <script setup lang="ts">
-const { data: collectionAwaitable } = await useAsyncData('collectionAwaitable', () =>
-  $fetch('/api/awaitable')
-)
+const { data: collectionAwaitable } = await useFetch('/api/awaitable')
 </script>
 
 <template>

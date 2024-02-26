@@ -1,9 +1,45 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const route = useRoute()
+const cfg = useRuntimeConfig()
+
+useHead(() => ({
+  link: [
+    {
+      rel: 'canonical',
+      href: cfg.public.DOMAIN + route.path
+    }
+  ]
+}))
+
+useSeoMeta({
+  title: 'Ineffable - фильмы и сериалы онлайн бесплатно в хорошем HD качестве 720, 1080, 4k',
+  charset: 'utf-8',
+  themeColor: '#222222',
+  description: '',
+  ogUrl: cfg.public.DOMAIN + route.path,
+  ogDescription: '',
+  ogSiteName: 'Ineffable - фильмы и сериалы онлайн бесплатно в хорошем HD качестве 720, 1080, 4k',
+  ogTitle: 'Ineffable - фильмы и сериалы онлайн бесплатно в хорошем HD качестве 720, 1080, 4k',
+  ogType: 'website',
+  ogImage: `${cfg.public.DOMAIN}/og-logo.png`,
+  twitterTitle: '',
+  twitterDescription: '',
+  twitterImage: `${cfg.public.DOMAIN}/og-logo.png`,
+  twitterCard: 'summary_large_image',
+  ogImageType: 'image/png',
+  ogImageAlt: 'Ineffable',
+  ogLocale: 'ru_RU',
+  appleMobileWebAppStatusBarStyle: 'black',
+  appleMobileWebAppTitle: cfg.public.APP_NAME,
+  appleMobileWebAppCapable: 'yes'
+})
+</script>
 
 <template>
-  <Html lang="en-US">
+  <Html lang="ru_RU">
     <Body>
       <NuxtLayout>
+        <NuxtPwaManifest />
         <NuxtLoadingIndicator :height="5" :duration="3000" :throttle="400" />
         <NuxtPage />
       </NuxtLayout>
