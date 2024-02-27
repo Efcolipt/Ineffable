@@ -7,7 +7,7 @@ const appConfig = {
   DOMAIN: process.env.DOMAIN,
   VERSION: version,
   PORT: Number(process.env.PORT ?? 3000),
-  SW: Boolean(process.env.SW ?? false)
+  SW: Boolean(process.env.SW ?? false),
 }
 
 export default defineNuxtConfig({
@@ -16,8 +16,8 @@ export default defineNuxtConfig({
       '@nuxtjs/i18n',
       {
         vueI18n: '@/core/i18n.ts',
-        defaultLocale: "ru",
-        strategy: "prefix_and_default",
+        defaultLocale: 'ru',
+        strategy: 'prefix_and_default',
         skipSettingLocaleOnNavigate: true,
         langDir: 'locales',
         debug: true,
@@ -28,32 +28,32 @@ export default defineNuxtConfig({
         },
         locales: [
           {
-            code: "en",
-            iso: "en",
-            name: "English",
-            file: "en.json",
+            code: 'en',
+            iso: 'en',
+            name: 'English',
+            file: 'en.json',
           },
           {
-            code: "ru",
-            iso: "ru",
-            name: "English",
-            file: "ru.json",
+            code: 'ru',
+            iso: 'ru',
+            name: 'English',
+            file: 'ru.json',
           },
         ],
-      }
+      },
     ],
     [
-      '@nuxtjs/stylelint-module', 
+      '@nuxtjs/stylelint-module',
       {
-        eslintPath: '.eslintrc'
-      }
+        eslintPath: '.eslintrc',
+      },
     ],
     [
       '@nuxtjs/tailwindcss',
       {
         cssPath: '@/assets/styles/_config.css',
-        configPath: './tailwind.config.ts'
-      }
+        configPath: './tailwind.config.ts',
+      },
     ],
     [
       '@vite-pwa/nuxt',
@@ -70,25 +70,25 @@ export default defineNuxtConfig({
           description: `${appConfig.APP_NAME} Online Cinema`,
           favicon: true,
           id: '/?standalone=true',
-          background_color: '#222222'
+          background_color: '#222222',
         },
         workbox: {
-          globPatterns: ['**/*.{js,css,html,png,svg,ico}']
+          globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
         },
         injectManifest: {
-          globPatterns: ['**/*.{js,css,html,png,svg,ico}']
+          globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
         },
         client: {
-          installPrompt: true
+          installPrompt: true,
         },
         devOptions: {
           enabled: false,
           suppressWarnings: true,
           navigateFallback: '/',
           navigateFallbackAllowlist: [/^\/$/],
-          type: 'module'
-        }
-      }
+          type: 'module',
+        },
+      },
     ],
     'nuxt-swiper',
     'nuxt-simple-sitemap',
@@ -96,22 +96,23 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-icons',
     [
-      '@nuxtjs/google-fonts', {
+      '@nuxtjs/google-fonts',
+      {
         families: {
           Roboto: '100..900',
-          Rubik: [600, 700]
-        }
-      }
-    ]
+          Rubik: [600, 700],
+        },
+      },
+    ],
   ],
 
   devServer: {
     port: appConfig.PORT,
-    host: '127.0.0.1'
+    host: '127.0.0.1',
   },
 
   site: {
-    url: appConfig.DOMAIN
+    url: appConfig.DOMAIN,
   },
 
   devtools: { enabled: true },
@@ -127,46 +128,45 @@ export default defineNuxtConfig({
         { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge,chrome=1' },
         {
           name: 'viewport',
-          content: 'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'
+          content:
+            'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0',
         },
-        { name: 'HandheldFriendly', content: 'True' }
+        { name: 'HandheldFriendly', content: 'True' },
       ],
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-      ]
-    }
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    },
   },
 
   experimental: {
     scanPageMeta: true,
     cookieStore: true,
     typedPages: true,
-    watcher: 'parcel'
+    watcher: 'parcel',
   },
 
   nitro: {
     esbuild: {
       options: {
-        target: 'esnext'
-      }
+        target: 'esnext',
+      },
     },
     compressPublicAssets: true,
     prerender: {
-      crawlLinks: true
-    }
+      crawlLinks: true,
+    },
   },
 
   runtimeConfig: {
     public: appConfig,
     INFO_BD: {
-      API_KEY: process.env.API_KEY_INFO
+      API_KEY: process.env.API_KEY_INFO,
     },
     VIDEO_BD: {
       API_KEY: process.env.API_KEY_VIDEO,
       API_PROP: process.env.API_PROP_VIDEO,
-      API_BASE_URL: process.env.API_BASE_URL_VIDEO
-    }
+      API_BASE_URL: process.env.API_BASE_URL_VIDEO,
+    },
   },
 
-  css: ['@/assets/styles/_config.css', '@/assets/styles/_media.css']
+  css: ['@/assets/styles/_config.css', '@/assets/styles/_media.css'],
 })
