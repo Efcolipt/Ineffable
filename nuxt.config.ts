@@ -5,14 +5,49 @@ const appConfig = {
   APP_NAME: 'Ineffable',
   TARGET: process.env.NODE_ENV,
   DOMAIN: process.env.DOMAIN,
-  PORT: Number(process.env.PORT ?? 3000),
   VERSION: version,
-  SW: process.env.SW ?? false
+  PORT: Number(process.env.PORT ?? 3000),
+  SW: Boolean(process.env.SW ?? false)
 }
 
 export default defineNuxtConfig({
   modules: [
-    '@nuxtjs/stylelint-module',
+    [
+      '@nuxtjs/i18n',
+      {
+        vueI18n: '@/core/i18n.ts',
+        defaultLocale: "ru",
+        strategy: "prefix_and_default",
+        skipSettingLocaleOnNavigate: true,
+        langDir: 'locales',
+        debug: true,
+        detectBrowserLanguage: {
+          fallbackLocale: 'ru',
+          cookieSecure: true,
+          useCookie: true,
+        },
+        locales: [
+          {
+            code: "en",
+            iso: "en",
+            name: "English",
+            file: "en.json",
+          },
+          {
+            code: "ru",
+            iso: "ru",
+            name: "English",
+            file: "ru.json",
+          },
+        ],
+      }
+    ],
+    [
+      '@nuxtjs/stylelint-module', 
+      {
+        eslintPath: '.eslintrc'
+      }
+    ],
     [
       '@nuxtjs/tailwindcss',
       {
@@ -47,7 +82,7 @@ export default defineNuxtConfig({
           installPrompt: true
         },
         devOptions: {
-          enabled: true,
+          enabled: false,
           suppressWarnings: true,
           navigateFallback: '/',
           navigateFallbackAllowlist: [/^\/$/],
@@ -102,14 +137,10 @@ export default defineNuxtConfig({
     }
   },
 
-  future: {
-    typescriptBundlerResolution: true
-  },
-
   experimental: {
     scanPageMeta: true,
     cookieStore: true,
-    payloadExtraction: true,
+    typedPages: true,
     watcher: 'parcel'
   },
 

@@ -1,0 +1,11 @@
+{
+  "extends": ["@nuxt", "plugin:prettier/recommended", "prettier"],
+  "env": {
+    "browser": true,
+    "node": true
+ },
+ "plugins": ["vue", "prettier"],
+    "rules": {
+      "prettier/prettier": ["error"]
+    }
+}

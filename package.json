@@ -15,7 +15,7 @@
     "start:prod": "node .output/server/index.mjs",
     "postinstall": "nuxt prepare",
     "release": "dotenv release-it --",
-    "lint:fix": "eslint --fix --ext \".jsx,.vue,.js,.ts,.js\" ./src --ignore-path .eslintignore .",
+    "lint:fix": "eslint --fix --ext \".jsx,.vue,.js,.ts,.js\" ./src",
     "lint:check": "eslint .",
     "test": "nuxi test"
   },
@@ -30,13 +30,18 @@
     "@commitlint/cli": "^17.5.1",
     "@commitlint/config-conventional": "^17.4.4",
     "@nuxt/devtools": "^1.0.8",
+    "@nuxt/eslint-config": "^0.2.0",
     "@nuxt/test-utils": "^3.4.2",
-    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@nuxtjs/eslint-module": "^4.1.0",
     "@nuxtjs/google-fonts": "^3.1.3",
+    "@nuxtjs/i18n": "^8.1.1",
     "@nuxtjs/stylelint-module": "^5.2.0",
     "@nuxtjs/tailwindcss": "^6.6.6",
     "@release-it/conventional-changelog": "^5.1.1",
     "@vite-pwa/nuxt": "^0.5.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.0",
     "nuxt": "^3.10.3",
@@ -44,12 +49,13 @@
     "release-it": "^15.10.0",
     "sass": "^1.62.0",
     "stylelint": "^16.2.1",
+    "stylelint-config-recommended-vue": "^1.5.0",
     "typescript": "^5.1.3",
     "vitest": "latest"
   },
   "lint-staged": {
     "./src/**/*.{jsx,vue,js,ts,js}": [
-      "eslint --fix --ext \".jsx,.vue,.js,.ts,.js\" ./src --ignore-path .eslintignore ."
+      "eslint --fix --ext \".jsx,.vue,.js,.ts,.js\" ./src"
     ]
   },
   "release-it": {
