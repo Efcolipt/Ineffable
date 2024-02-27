@@ -7,7 +7,7 @@ export default defineEventHandler(async (event) => {
   } catch {
     throw createError({
       statusCode: 404,
-      statusMessage: 'Film Not Found'
+      statusMessage: 'Film Not Found',
     })
   }
 })

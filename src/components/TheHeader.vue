@@ -12,24 +12,16 @@
         <nav class="header__menu">
           <ul class="flex items-center gap-11">
             <li class="header__item">
-              <NuxtLink to="/" class="base-text">
-                Лента
-              </NuxtLink>
+              <NuxtLink to="/" class="base-text"> Лента </NuxtLink>
             </li>
             <li class="header__item">
-              <NuxtLink to="/" class="base-text">
-                Фильмы
-              </NuxtLink>
+              <NuxtLink to="/" class="base-text"> Фильмы </NuxtLink>
             </li>
             <li class="header__item">
-              <NuxtLink to="/" class="base-text">
-                Сериалы
-              </NuxtLink>
+              <NuxtLink to="/" class="base-text"> Сериалы </NuxtLink>
             </li>
             <li class="header__item">
-              <NuxtLink to="/" class="base-text">
-                Мультфильмы
-              </NuxtLink>
+              <NuxtLink to="/" class="base-text"> Мультфильмы </NuxtLink>
             </li>
           </ul>
         </nav>

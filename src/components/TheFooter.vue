@@ -24,8 +24,8 @@ const config = useRuntimeConfig()
         <div class="flex justify-between items-center opacity-50 mt-4">
           <div>
             <span class="base-text">
-              © 2018 - {{ new Date().getUTCFullYear() }} {{ config.public.APP_NAME }} —
-              ISC License
+              © 2018 - {{ new Date().getUTCFullYear() }}
+              {{ config.public.APP_NAME }} — ISC License
             </span>
           </div>
           <div class="flex items-center gap-4">

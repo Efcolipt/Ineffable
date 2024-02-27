@@ -17,7 +17,7 @@ const { data: collectionAwaitable } = await useFetch('/api/awaitable')
       <SwiperSlide v-for="item in collectionAwaitable?.docs" :key="item.name">
         <div class="relative h-full">
           <div>
-            <img class="rounded-xl" :src="item?.backdrop?.url">
+            <img class="rounded-xl" :src="item?.backdrop?.url" />
           </div>
 
           <div class="absolute bottom-[17%] left-[8%] max-w-[500px]">
@@ -28,7 +28,10 @@ const { data: collectionAwaitable } = await useFetch('/api/awaitable')
               {{ item.shortDescription }}
             </p>
             <div class="mt-2 items-center flex gap-2 opacity-50">
-              <p v-if="item?.genres?.[0]" class="base-text font-normal text-sm first-letter:uppercase">
+              <p
+                v-if="item?.genres?.[0]"
+                class="base-text font-normal text-sm first-letter:uppercase"
+              >
                 {{ item.genres[0].name }}
               </p>
               <span class="base-text">•</span>
@@ -36,7 +39,10 @@ const { data: collectionAwaitable } = await useFetch('/api/awaitable')
                 {{ item.year }}
               </p>
               <span class="base-text">•</span>
-              <p v-if="item?.movieLength" class="base-text font-normal gap-2 text-sm flex items-center">
+              <p
+                v-if="item?.movieLength"
+                class="base-text font-normal gap-2 text-sm flex items-center"
+              >
                 <UIIcon name="time" /> {{ item.movieLength }} мин
               </p>
               <span class="base-text">•</span>
@@ -49,9 +55,7 @@ const { data: collectionAwaitable } = await useFetch('/api/awaitable')
                 <UIIcon width="20" height="20" name="play" />
                 Смотреть
               </UIButton>
-              <UIButton theme="secondary">
-                Трейлер
-              </UIButton>
+              <UIButton theme="secondary"> Трейлер </UIButton>
               <UIButton theme="secondary">
                 <UIIcon width="20" height="20" name="bookmark" />
               </UIButton>

@@ -6,20 +6,23 @@ useHead(() => ({
   link: [
     {
       rel: 'canonical',
-      href: cfg.public.DOMAIN + route.path
-    }
-  ]
+      href: cfg.public.DOMAIN + route.path,
+    },
+  ],
 }))
 
 useSeoMeta({
-  title: 'Ineffable - фильмы и сериалы онлайн бесплатно в хорошем HD качестве 720, 1080, 4k',
+  title:
+    'Ineffable - фильмы и сериалы онлайн бесплатно в хорошем HD качестве 720, 1080, 4k',
   charset: 'utf-8',
   themeColor: '#222222',
   description: '',
   ogUrl: cfg.public.DOMAIN + route.path,
   ogDescription: '',
-  ogSiteName: 'Ineffable - фильмы и сериалы онлайн бесплатно в хорошем HD качестве 720, 1080, 4k',
-  ogTitle: 'Ineffable - фильмы и сериалы онлайн бесплатно в хорошем HD качестве 720, 1080, 4k',
+  ogSiteName:
+    'Ineffable - фильмы и сериалы онлайн бесплатно в хорошем HD качестве 720, 1080, 4k',
+  ogTitle:
+    'Ineffable - фильмы и сериалы онлайн бесплатно в хорошем HD качестве 720, 1080, 4k',
   ogType: 'website',
   ogImage: `${cfg.public.DOMAIN}/og-logo.png`,
   twitterTitle: '',
@@ -31,7 +34,7 @@ useSeoMeta({
   ogLocale: 'ru_RU',
   appleMobileWebAppStatusBarStyle: 'black',
   appleMobileWebAppTitle: cfg.public.APP_NAME,
-  appleMobileWebAppCapable: 'yes'
+  appleMobileWebAppCapable: 'yes',
 })
 </script>
 

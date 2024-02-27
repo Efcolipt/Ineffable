@@ -1,11 +1,13 @@
 <script setup lang="ts">
 definePageMeta({
-  validate (route) {
+  validate(route) {
     return /^\d+$/.test(route.params?.id?.toString?.() ?? null)
-  }
+  },
 })
 
-const { params: { id } } = useRoute()
+const {
+  params: { id },
+} = useRoute()
 
 const { data: collection } = await useFetch(`/api/watch/${id}`)
 

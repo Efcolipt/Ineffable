@@ -10,7 +10,7 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   size: 'md',
   theme: 'gradient',
-  to: undefined
+  to: undefined,
 })
 </script>
 
